@@ -299,7 +299,7 @@ Partial Class frmAccEdit
         btnExit.Size = New Size(141, 45)
         btnExit.TabIndex = 20
         btnExit.Text = "Exit"
-        ToolTip1.SetToolTip(btnExit, "Exit form")
+        ToolTip1.SetToolTip(btnExit, "Exit to Client Centre")
         btnExit.UseVisualStyleBackColor = False
         ' 
         ' btnUpdateAcc

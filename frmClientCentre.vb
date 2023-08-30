@@ -21,7 +21,7 @@ Public Class frmClientCentre
             DB.sqlConnect.Open()
             sqlQuery = "SELECT card_num AS 'Card Number', first_name AS 'First Name', surname AS 'Surname', other_name AS 'Other Name(s)', birth_date AS 'Date of Birth', 
             gender AS 'Gender', job AS 'Occupation', phone_num AS 'Phone Number', account_id, client_id, CONCAT_WS(' ', card_num, first_name, other_name, surname) AS 'Name' FROM biodata 
-            WHERE account_id =" & frmUAC.account_id & " ORDER BY client_id DESC;"
+            WHERE account_id =" & frmAccPass.account_id & " ORDER BY client_id DESC;"
             sqlComm.CommandText = sqlQuery
             sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
             sqlAdapt.SelectCommand = sqlComm
@@ -55,7 +55,7 @@ Public Class frmClientCentre
 
             'Display client info
             birth_date = Replace(birth_date, " 00:00:00", "")
-            txtInfo.Text = card_num & vbCrLf & first_name & " " & other_name & vbCrLf & surname & vbCrLf & birth_date & vbCrLf & gender & vbCrLf & phone_num & vbCrLf & job
+            txtInfo.Text = card_num & vbCrLf & first_name & " " & other_name & vbCrLf & surname & vbCrLf & gender & vbCrLf & birth_date & vbCrLf & job & vbCrLf & phone_num
             info = txtInfo.Text
         End If
     End Sub
@@ -89,12 +89,6 @@ Public Class frmClientCentre
         Hide()
     End Sub
 
-    'View transaction records
-    Private Sub btnTrans_Click(sender As Object, e As EventArgs) Handles btnTrans.Click
-        frmMainUI.ViewInPanel(frmCheckOut)
-        Hide()
-    End Sub
-
     'View data export form
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
         frmMainUI.ViewInPanel(frmExport)
@@ -105,16 +99,19 @@ Public Class frmClientCentre
     End Sub
     Private Sub frmClientCentre_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Dim dialog As DialogResult
-        dialog = MessageBox.Show("Do you wish to logout of your account?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        dialog = MessageBox.Show("Do you wish to logout of your user account?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If dialog = DialogResult.No Then
             e.Cancel = True
         Else
-            'Return to "User Account Centre"
-            frmUAC.Dispose()
-            frmMainUI.ViewInPanel(frmUAC)
+            'Return to start
+            frmStart.Show()
+            frmAccPass.Dispose()
+            Dispose()
+            frmMainUI.Hide()
         End If
     End Sub
 
+    'Refresh datagridview
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         btnClient.Select()
         DB.sqlConnect.Close()
@@ -122,7 +119,7 @@ Public Class frmClientCentre
             DB.sqlConnect.Open()
             sqlQuery = "SELECT card_num AS 'Card Number', first_name AS 'First Name', surname AS 'Surname', other_name AS 'Other Name(s)', birth_date AS 'Date of Birth', 
             gender AS 'Gender', job AS 'Occupation', phone_num AS 'Phone Number', account_id, client_id, CONCAT_WS(' ', card_num, first_name, other_name, surname) AS 'Name' FROM biodata 
-            WHERE account_id =" & frmUAC.account_id & " ORDER BY client_id DESC;"
+            WHERE account_id =" & frmAccPass.account_id & " ORDER BY client_id DESC;"
             sqlComm.CommandText = sqlQuery
             sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
             sqlAdapt.SelectCommand = sqlComm

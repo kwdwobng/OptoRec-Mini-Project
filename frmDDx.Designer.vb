@@ -23,8 +23,6 @@ Partial Class frmDDx
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmDDx))
-        btnUpdateAcc = New Button()
         btnPrev = New Button()
         txtComments = New TextBox()
         txtPx = New TextBox()
@@ -38,28 +36,13 @@ Partial Class frmDDx
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' btnUpdateAcc
-        ' 
-        btnUpdateAcc.BackColor = SystemColors.GradientInactiveCaption
-        btnUpdateAcc.FlatStyle = FlatStyle.Flat
-        btnUpdateAcc.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnUpdateAcc.Image = CType(resources.GetObject("btnUpdateAcc.Image"), Image)
-        btnUpdateAcc.ImageAlign = ContentAlignment.MiddleLeft
-        btnUpdateAcc.Location = New Point(738, 489)
-        btnUpdateAcc.Name = "btnUpdateAcc"
-        btnUpdateAcc.Size = New Size(141, 45)
-        btnUpdateAcc.TabIndex = 35
-        btnUpdateAcc.Text = "Save"
-        ToolTip1.SetToolTip(btnUpdateAcc, "Save info")
-        btnUpdateAcc.UseVisualStyleBackColor = False
-        ' 
         ' btnPrev
         ' 
         btnPrev.BackColor = SystemColors.Control
         btnPrev.FlatStyle = FlatStyle.Flat
         btnPrev.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnPrev.Image = My.Resources.Resources.left_arrow
-        btnPrev.Location = New Point(811, 21)
+        btnPrev.Location = New Point(817, 21)
         btnPrev.Name = "btnPrev"
         btnPrev.Size = New Size(68, 45)
         btnPrev.TabIndex = 36
@@ -127,7 +110,7 @@ Partial Class frmDDx
         ' 
         txtBioTag.BackColor = Color.WhiteSmoke
         txtBioTag.BorderStyle = BorderStyle.FixedSingle
-        txtBioTag.Location = New Point(12, 21)
+        txtBioTag.Location = New Point(18, 21)
         txtBioTag.Name = "txtBioTag"
         txtBioTag.ReadOnly = True
         txtBioTag.Size = New Size(406, 27)
@@ -143,7 +126,7 @@ Partial Class frmDDx
         GroupBox1.Controls.Add(txtDx)
         GroupBox1.Controls.Add(Label8)
         GroupBox1.Controls.Add(Label6)
-        GroupBox1.Location = New Point(12, 72)
+        GroupBox1.Location = New Point(18, 72)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(867, 411)
         GroupBox1.TabIndex = 41
@@ -153,23 +136,21 @@ Partial Class frmDDx
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoScroll = True
         BackColor = SystemColors.ControlLightLight
         ClientSize = New Size(1280, 720)
         Controls.Add(txtBioTag)
         Controls.Add(GroupBox1)
-        Controls.Add(btnUpdateAcc)
         Controls.Add(btnPrev)
         FormBorderStyle = FormBorderStyle.None
         MaximizeBox = False
         Name = "frmDDx"
-        StartPosition = FormStartPosition.CenterScreen
         Text = "Diagnosis & Prescription"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents btnUpdateAcc As Button
     Friend WithEvents btnPrev As Button
     Friend WithEvents txtComments As TextBox
     Friend WithEvents txtPx As TextBox

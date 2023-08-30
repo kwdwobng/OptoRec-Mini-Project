@@ -48,7 +48,7 @@ Public Class frmExport
                             LEFT JOIN biodata bd
                                 ON bd.client_id = cv.client_id
                     WHERE
-	                    bd.account_id = " & frmUAC.account_id & " 
+	                    bd.account_id = " & frmAccPass.account_id & " 
                     ORDER BY
                         co.added_on DESC;"
 
@@ -69,44 +69,6 @@ Public Class frmExport
             DB.sqlConnect.Dispose()
         End Try
 
-        'Display all accounting data
-        sqlQuery = "SELECT
-                        receipt_id,	                    
-                        item_name,
-                        ch.item_id,
-                        quantity,
-                        cost,
-                        bd.client_id,
-                        card_num,
-                        birth_date,
-                        job,
-                        gender,
-                        ch.added_on
-                    FROM
-	                    items it
-                            LEFT JOIN checkout ch
-		                        ON it.item_id = ch.item_id
-	                        LEFT JOIN biodata bd
-		                        ON ch.client_id = bd.client_id
-                    WHERE
-	                    it.account_id = " & frmUAC.account_id & "
-                    ORDER BY
-                        ch.added_on DESC;"
-        Try
-            DB.sqlConnect.Open()
-            sqlComm.CommandText = sqlQuery
-            sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
-            sqlAdapt.SelectCommand = sqlComm
-            sqlAdapt.Fill(dbData2)
-            dbSource2.DataSource = dbData2
-            DataGridView2.DataSource = dbSource2
-            sqlAdapt.Update(dbData2)
-            DB.sqlConnect.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            DB.sqlConnect.Dispose()
-        End Try
     End Sub
 
     'Create all consults csv file
@@ -129,7 +91,9 @@ Public Class frmExport
                     Next
                     sw.WriteLine(String.Join(",", rowData))
                 Next
+
                 sw.Close()
+
                 Dim psi As New ProcessStartInfo
 
                 'Open csv file
@@ -143,42 +107,5 @@ Public Class frmExport
         End If
 
     End Sub
-
-    'Create all transactions csv file
-    Private Sub btnExportTrans_Click(sender As Object, e As EventArgs) Handles btnExportTrans.Click
-        Dim sfd As New SaveFileDialog
-        sfd.FileName = "OptoRec Transaction Data"
-        sfd.Filter = "CSV File | *.csv"
-
-        If sfd.ShowDialog = DialogResult.OK Then
-            Using sw As StreamWriter = File.CreateText(sfd.FileName)
-                Dim dgvColNames As List(Of String) = DataGridView2.Columns.
-                    Cast(Of DataGridViewColumn).ToList().
-                    Select(Function(c) c.Name).ToList()
-                sw.WriteLine(String.Join(",", dgvColNames))
-
-                For Each row As DataGridViewRow In DataGridView2.Rows
-                    Dim rowData As New List(Of String)
-                    For Each column As DataGridViewColumn In DataGridView2.Columns
-                        rowData.Add(Convert.ToString(row.Cells(column.Name).Value))
-                    Next
-                    sw.WriteLine(String.Join(",", rowData))
-                Next
-                sw.Close()
-
-                'Open csv file
-                Dim psi As New ProcessStartInfo
-
-                With psi
-                    .FileName = sfd.FileName
-                    .UseShellExecute = True
-                End With
-
-                System.Diagnostics.Process.Start(psi)
-            End Using
-        End If
-
-    End Sub
-
 
 End Class

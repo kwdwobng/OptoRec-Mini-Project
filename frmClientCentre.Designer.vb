@@ -36,7 +36,6 @@ Partial Class frmClientCentre
         btnRefresh = New Button()
         PictureBox1 = New PictureBox()
         ToolTip1 = New ToolTip(components)
-        btnTrans = New Button()
         btnExport = New Button()
         GroupBox1 = New GroupBox()
         btnMessage = New Button()
@@ -58,7 +57,7 @@ Partial Class frmClientCentre
         btnLogout.Size = New Size(141, 45)
         btnLogout.TabIndex = 8
         btnLogout.Text = "Logout"
-        ToolTip1.SetToolTip(btnLogout, "Logout of client centre")
+        ToolTip1.SetToolTip(btnLogout, "Logout of Client Centre")
         btnLogout.UseVisualStyleBackColor = False
         ' 
         ' DataGridView1
@@ -124,12 +123,12 @@ Partial Class frmClientCentre
         btnClient.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnClient.Image = CType(resources.GetObject("btnClient.Image"), Image)
         btnClient.ImageAlign = ContentAlignment.MiddleLeft
-        btnClient.Location = New Point(18, 26)
+        btnClient.Location = New Point(21, 26)
         btnClient.Name = "btnClient"
         btnClient.Size = New Size(141, 45)
         btnClient.TabIndex = 1
         btnClient.Text = "Client"
-        ToolTip1.SetToolTip(btnClient, "Client clinical record")
+        ToolTip1.SetToolTip(btnClient, "Client clinical records")
         btnClient.UseVisualStyleBackColor = False
         ' 
         ' btnNew
@@ -139,12 +138,12 @@ Partial Class frmClientCentre
         btnNew.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnNew.Image = CType(resources.GetObject("btnNew.Image"), Image)
         btnNew.ImageAlign = ContentAlignment.MiddleLeft
-        btnNew.Location = New Point(165, 26)
+        btnNew.Location = New Point(168, 26)
         btnNew.Name = "btnNew"
         btnNew.Size = New Size(141, 45)
         btnNew.TabIndex = 2
-        btnNew.Text = "New"
-        ToolTip1.SetToolTip(btnNew, "Create new client record")
+        btnNew.Text = " New Client"
+        ToolTip1.SetToolTip(btnNew, "New Client Record")
         btnNew.UseVisualStyleBackColor = False
         ' 
         ' grpSearch
@@ -184,21 +183,6 @@ Partial Class frmClientCentre
         PictureBox1.TabIndex = 5
         PictureBox1.TabStop = False
         ' 
-        ' btnTrans
-        ' 
-        btnTrans.BackColor = SystemColors.GradientInactiveCaption
-        btnTrans.FlatStyle = FlatStyle.Flat
-        btnTrans.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnTrans.Image = CType(resources.GetObject("btnTrans.Image"), Image)
-        btnTrans.ImageAlign = ContentAlignment.MiddleLeft
-        btnTrans.Location = New Point(312, 26)
-        btnTrans.Name = "btnTrans"
-        btnTrans.Size = New Size(141, 45)
-        btnTrans.TabIndex = 3
-        btnTrans.Text = " Transactions"
-        ToolTip1.SetToolTip(btnTrans, "Transaction Centre")
-        btnTrans.UseVisualStyleBackColor = False
-        ' 
         ' btnExport
         ' 
         btnExport.BackColor = SystemColors.InactiveBorder
@@ -211,18 +195,17 @@ Partial Class frmClientCentre
         btnExport.Size = New Size(141, 45)
         btnExport.TabIndex = 7
         btnExport.Text = "Export"
-        ToolTip1.SetToolTip(btnExport, "Export client data")
+        ToolTip1.SetToolTip(btnExport, "Export Centre")
         btnExport.UseVisualStyleBackColor = False
         ' 
         ' GroupBox1
         ' 
-        GroupBox1.Controls.Add(btnTrans)
         GroupBox1.Controls.Add(btnClient)
         GroupBox1.Controls.Add(btnNew)
         GroupBox1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        GroupBox1.Location = New Point(588, 12)
+        GroupBox1.Location = New Point(739, 12)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(475, 92)
+        GroupBox1.Size = New Size(324, 92)
         GroupBox1.TabIndex = 11
         GroupBox1.TabStop = False
         GroupBox1.Text = "Client Portal"
@@ -231,16 +214,13 @@ Partial Class frmClientCentre
         ' btnMessage
         ' 
         btnMessage.BackColor = SystemColors.ControlLightLight
-        btnMessage.FlatStyle = FlatStyle.Flat
-        btnMessage.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnMessage.Font = New Font("Segoe UI Semibold", 8F, FontStyle.Bold, GraphicsUnit.Point)
         btnMessage.Image = CType(resources.GetObject("btnMessage.Image"), Image)
-        btnMessage.ImageAlign = ContentAlignment.MiddleLeft
         btnMessage.Location = New Point(12, 37)
         btnMessage.Name = "btnMessage"
-        btnMessage.Size = New Size(141, 45)
+        btnMessage.Size = New Size(45, 45)
         btnMessage.TabIndex = 12
-        btnMessage.Text = "Messenger"
-        ToolTip1.SetToolTip(btnMessage, "Leave a short message")
+        ToolTip1.SetToolTip(btnMessage, "Quick Message")
         btnMessage.UseVisualStyleBackColor = False
         ' 
         ' frmClientCentre
@@ -275,7 +255,6 @@ Partial Class frmClientCentre
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnExport As Button
-    Friend WithEvents btnTrans As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnMessage As Button
     Friend WithEvents btnRefresh As Button

@@ -95,7 +95,6 @@ Partial Class CompForm1
         Label1 = New Label()
         txtOdq = New TextBox()
         grpHistory = New GroupBox()
-        lblTitle = New Label()
         grpCardio = New GroupBox()
         lblSugar = New Label()
         lblBP = New Label()
@@ -135,7 +134,7 @@ Partial Class CompForm1
         grpBioData.Controls.Add(lblFirstName)
         grpBioData.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         grpBioData.ImeMode = ImeMode.NoControl
-        grpBioData.Location = New Point(0, 88)
+        grpBioData.Location = New Point(0, 5)
         grpBioData.Name = "grpBioData"
         grpBioData.Size = New Size(648, 245)
         grpBioData.TabIndex = 16
@@ -196,7 +195,7 @@ Partial Class CompForm1
         ' 
         txtReligion.BackColor = SystemColors.Window
         txtReligion.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtReligion.Location = New Point(427, 170)
+        txtReligion.Location = New Point(427, 171)
         txtReligion.Name = "txtReligion"
         txtReligion.ReadOnly = True
         txtReligion.Size = New Size(197, 27)
@@ -206,7 +205,7 @@ Partial Class CompForm1
         ' 
         lblCardNum.AutoSize = True
         lblCardNum.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblCardNum.Location = New Point(11, 38)
+        lblCardNum.Location = New Point(11, 37)
         lblCardNum.Name = "lblCardNum"
         lblCardNum.Size = New Size(101, 20)
         lblCardNum.TabIndex = 21
@@ -306,7 +305,7 @@ Partial Class CompForm1
         ' 
         txtAge.BackColor = SystemColors.Window
         txtAge.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtAge.Location = New Point(114, 170)
+        txtAge.Location = New Point(114, 171)
         txtAge.Name = "txtAge"
         txtAge.ReadOnly = True
         txtAge.Size = New Size(70, 27)
@@ -316,7 +315,7 @@ Partial Class CompForm1
         ' 
         lblAge.AutoSize = True
         lblAge.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblAge.Location = New Point(12, 172)
+        lblAge.Location = New Point(11, 172)
         lblAge.Name = "lblAge"
         lblAge.Size = New Size(39, 20)
         lblAge.TabIndex = 13
@@ -409,7 +408,7 @@ Partial Class CompForm1
         grpVA.Controls.Add(lblPD)
         grpVA.Controls.Add(lblMonoPD)
         grpVA.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        grpVA.Location = New Point(654, 88)
+        grpVA.Location = New Point(654, 5)
         grpVA.Name = "grpVA"
         grpVA.Size = New Size(368, 245)
         grpVA.TabIndex = 18
@@ -450,7 +449,7 @@ Partial Class CompForm1
         ' 
         txtOsUnAid.BackColor = SystemColors.Window
         txtOsUnAid.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtOsUnAid.Location = New Point(40, 202)
+        txtOsUnAid.Location = New Point(40, 203)
         txtOsUnAid.Name = "txtOsUnAid"
         txtOsUnAid.ReadOnly = True
         txtOsUnAid.Size = New Size(63, 27)
@@ -510,7 +509,7 @@ Partial Class CompForm1
         ' 
         Label13.AutoSize = True
         Label13.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label13.Location = New Point(179, 122)
+        Label13.Location = New Point(179, 123)
         Label13.Name = "Label13"
         Label13.Size = New Size(57, 40)
         Label13.TabIndex = 23
@@ -550,7 +549,7 @@ Partial Class CompForm1
         ' 
         Label17.AutoSize = True
         Label17.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label17.Location = New Point(6, 206)
+        Label17.Location = New Point(6, 205)
         Label17.Name = "Label17"
         Label17.Size = New Size(28, 20)
         Label17.TabIndex = 18
@@ -570,7 +569,7 @@ Partial Class CompForm1
         ' 
         lblLE.AutoSize = True
         lblLE.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblLE.Location = New Point(236, 75)
+        lblLE.Location = New Point(235, 75)
         lblLE.Name = "lblLE"
         lblLE.Size = New Size(24, 20)
         lblLE.TabIndex = 16
@@ -590,7 +589,7 @@ Partial Class CompForm1
         ' 
         lblSlash.AutoSize = True
         lblSlash.Font = New Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point)
-        lblSlash.Location = New Point(137, 26)
+        lblSlash.Location = New Point(137, 27)
         lblSlash.Name = "lblSlash"
         lblSlash.Size = New Size(19, 25)
         lblSlash.TabIndex = 14
@@ -620,7 +619,7 @@ Partial Class CompForm1
         ' 
         txtPdIn.BackColor = SystemColors.Window
         txtPdIn.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtPdIn.Location = New Point(158, 26)
+        txtPdIn.Location = New Point(158, 27)
         txtPdIn.Name = "txtPdIn"
         txtPdIn.ReadOnly = True
         txtPdIn.Size = New Size(51, 27)
@@ -630,7 +629,7 @@ Partial Class CompForm1
         ' 
         txtPdOut.BackColor = SystemColors.Window
         txtPdOut.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtPdOut.Location = New Point(84, 26)
+        txtPdOut.Location = New Point(85, 27)
         txtPdOut.Name = "txtPdOut"
         txtPdOut.ReadOnly = True
         txtPdOut.Size = New Size(51, 27)
@@ -640,7 +639,7 @@ Partial Class CompForm1
         ' 
         lblPD.AutoSize = True
         lblPD.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblPD.Location = New Point(7, 30)
+        lblPD.Location = New Point(7, 29)
         lblPD.Name = "lblPD"
         lblPD.Size = New Size(71, 20)
         lblPD.TabIndex = 2
@@ -889,7 +888,6 @@ Partial Class CompForm1
         ' 
         ' grpHistory
         ' 
-        grpHistory.Anchor = AnchorStyles.Top
         grpHistory.Controls.Add(txtOdq)
         grpHistory.Controls.Add(txtDdx)
         grpHistory.Controls.Add(lblDdx)
@@ -913,24 +911,12 @@ Partial Class CompForm1
         grpHistory.Controls.Add(Label2)
         grpHistory.Controls.Add(Label1)
         grpHistory.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        grpHistory.Location = New Point(0, 403)
+        grpHistory.Location = New Point(5, 320)
         grpHistory.Name = "grpHistory"
         grpHistory.Size = New Size(1022, 628)
         grpHistory.TabIndex = 60
         grpHistory.TabStop = False
         grpHistory.Text = "Client History"
-        ' 
-        ' lblTitle
-        ' 
-        lblTitle.Anchor = AnchorStyles.Left
-        lblTitle.AutoSize = True
-        lblTitle.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold Or FontStyle.Underline, GraphicsUnit.Point)
-        lblTitle.Location = New Point(356, 9)
-        lblTitle.Name = "lblTitle"
-        lblTitle.Size = New Size(120, 28)
-        lblTitle.TabIndex = 65
-        lblTitle.Text = "Clinic Name"
-        lblTitle.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' grpCardio
         ' 
@@ -939,7 +925,7 @@ Partial Class CompForm1
         grpCardio.Controls.Add(txtBP)
         grpCardio.Controls.Add(txtSugar)
         grpCardio.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        grpCardio.Location = New Point(0, 340)
+        grpCardio.Location = New Point(0, 257)
         grpCardio.Name = "grpCardio"
         grpCardio.Size = New Size(513, 57)
         grpCardio.TabIndex = 71
@@ -984,13 +970,12 @@ Partial Class CompForm1
         ' 
         ' CompForm1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleDimensions = New SizeF(120F, 120F)
+        AutoScaleMode = AutoScaleMode.Dpi
         AutoScroll = True
         BackColor = SystemColors.ControlLightLight
-        ClientSize = New Size(1202, 1153)
+        ClientSize = New Size(1080, 960)
         Controls.Add(grpCardio)
-        Controls.Add(lblTitle)
         Controls.Add(grpHistory)
         Controls.Add(grpVA)
         Controls.Add(grpBioData)
@@ -1007,7 +992,6 @@ Partial Class CompForm1
         grpCardio.ResumeLayout(False)
         grpCardio.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents grpBioData As GroupBox
@@ -1082,7 +1066,6 @@ Partial Class CompForm1
     Friend WithEvents Label18 As Label
     Friend WithEvents txtGender As TextBox
     Friend WithEvents Label19 As Label
-    Friend WithEvents lblTitle As Label
     Friend WithEvents grpCardio As GroupBox
     Friend WithEvents lblSugar As Label
     Friend WithEvents lblBP As Label

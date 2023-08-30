@@ -28,11 +28,7 @@ Partial Class frmMainUI
         lblTitle = New Label()
         pnlMain = New Panel()
         ToolTip1 = New ToolTip(components)
-        btnUser = New Button()
-        btnNewUser = New Button()
-        btnCheckout = New Button()
-        btnItems = New Button()
-        btnExitAcc = New Button()
+        btnUserInfo = New Button()
         btnExitExport = New Button()
         btnVA = New Button()
         btnHistory = New Button()
@@ -42,13 +38,13 @@ Partial Class frmMainUI
         btnCardio = New Button()
         btnMessage = New Button()
         btnMenu = New Button()
-        pnlAcc = New Panel()
+        btnHelp = New Button()
+        btnSave = New Button()
         pnlExport = New Panel()
         pnlClinic = New Panel()
         pnlThickBorder = New Panel()
         pnlMenu = New Panel()
         pnlTitle.SuspendLayout()
-        pnlAcc.SuspendLayout()
         pnlExport.SuspendLayout()
         pnlClinic.SuspendLayout()
         pnlThickBorder.SuspendLayout()
@@ -62,7 +58,7 @@ Partial Class frmMainUI
         pnlTitle.Dock = DockStyle.Top
         pnlTitle.Location = New Point(150, 0)
         pnlTitle.Name = "pnlTitle"
-        pnlTitle.Size = New Size(1130, 23)
+        pnlTitle.Size = New Size(1130, 27)
         pnlTitle.TabIndex = 0
         ' 
         ' lblTitle
@@ -72,7 +68,7 @@ Partial Class frmMainUI
         lblTitle.BackColor = SystemColors.InactiveCaptionText
         lblTitle.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         lblTitle.ForeColor = SystemColors.ControlLightLight
-        lblTitle.Location = New Point(471, 1)
+        lblTitle.Location = New Point(500, 2)
         lblTitle.Name = "lblTitle"
         lblTitle.Size = New Size(38, 20)
         lblTitle.TabIndex = 0
@@ -83,102 +79,29 @@ Partial Class frmMainUI
         ' 
         pnlMain.AutoScroll = True
         pnlMain.BackColor = SystemColors.ControlLightLight
-        pnlMain.Location = New Point(150, 23)
+        pnlMain.Dock = DockStyle.Fill
+        pnlMain.Location = New Point(150, 27)
         pnlMain.Name = "pnlMain"
-        pnlMain.Size = New Size(1130, 697)
+        pnlMain.Size = New Size(1130, 693)
         pnlMain.TabIndex = 2
         ' 
-        ' btnUser
+        ' btnUserInfo
         ' 
-        btnUser.BackColor = Color.Transparent
-        btnUser.FlatAppearance.BorderSize = 0
-        btnUser.FlatStyle = FlatStyle.Flat
-        btnUser.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnUser.ForeColor = Color.Black
-        btnUser.Image = CType(resources.GetObject("btnUser.Image"), Image)
-        btnUser.ImageAlign = ContentAlignment.MiddleLeft
-        btnUser.Location = New Point(0, 23)
-        btnUser.Name = "btnUser"
-        btnUser.Size = New Size(150, 45)
-        btnUser.TabIndex = 101
-        btnUser.Text = "User"
-        btnUser.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnUser, "User Accounts")
-        btnUser.UseVisualStyleBackColor = False
-        ' 
-        ' btnNewUser
-        ' 
-        btnNewUser.BackColor = Color.Transparent
-        btnNewUser.FlatAppearance.BorderSize = 0
-        btnNewUser.FlatStyle = FlatStyle.Flat
-        btnNewUser.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnNewUser.ForeColor = Color.Black
-        btnNewUser.Image = CType(resources.GetObject("btnNewUser.Image"), Image)
-        btnNewUser.ImageAlign = ContentAlignment.MiddleLeft
-        btnNewUser.Location = New Point(0, 74)
-        btnNewUser.Name = "btnNewUser"
-        btnNewUser.Size = New Size(150, 45)
-        btnNewUser.TabIndex = 102
-        btnNewUser.Text = "Add User"
-        btnNewUser.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnNewUser, "Add new User Account")
-        btnNewUser.UseVisualStyleBackColor = False
-        ' 
-        ' btnCheckout
-        ' 
-        btnCheckout.BackColor = Color.Transparent
-        btnCheckout.FlatAppearance.BorderSize = 0
-        btnCheckout.FlatStyle = FlatStyle.Flat
-        btnCheckout.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnCheckout.ForeColor = Color.Black
-        btnCheckout.Image = CType(resources.GetObject("btnCheckout.Image"), Image)
-        btnCheckout.ImageAlign = ContentAlignment.MiddleLeft
-        btnCheckout.Location = New Point(0, 23)
-        btnCheckout.Name = "btnCheckout"
-        btnCheckout.Size = New Size(150, 45)
-        btnCheckout.TabIndex = 301
-        btnCheckout.Text = "Transactions"
-        btnCheckout.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnCheckout, "Client Receipts")
-        btnCheckout.UseVisualStyleBackColor = False
-        ' 
-        ' btnItems
-        ' 
-        btnItems.Anchor = AnchorStyles.Top
-        btnItems.BackColor = Color.Transparent
-        btnItems.FlatAppearance.BorderSize = 0
-        btnItems.FlatStyle = FlatStyle.Flat
-        btnItems.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnItems.ForeColor = Color.Black
-        btnItems.Image = CType(resources.GetObject("btnItems.Image"), Image)
-        btnItems.ImageAlign = ContentAlignment.MiddleLeft
-        btnItems.Location = New Point(0, 74)
-        btnItems.Name = "btnItems"
-        btnItems.Size = New Size(150, 45)
-        btnItems.TabIndex = 302
-        btnItems.Text = "Products etc."
-        btnItems.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnItems, "Products & Services")
-        btnItems.UseVisualStyleBackColor = False
-        ' 
-        ' btnExitAcc
-        ' 
-        btnExitAcc.Anchor = AnchorStyles.Top
-        btnExitAcc.BackColor = SystemColors.Info
-        btnExitAcc.FlatAppearance.BorderSize = 0
-        btnExitAcc.FlatStyle = FlatStyle.Flat
-        btnExitAcc.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnExitAcc.ForeColor = Color.Black
-        btnExitAcc.Image = CType(resources.GetObject("btnExitAcc.Image"), Image)
-        btnExitAcc.ImageAlign = ContentAlignment.MiddleLeft
-        btnExitAcc.Location = New Point(0, 125)
-        btnExitAcc.Name = "btnExitAcc"
-        btnExitAcc.Size = New Size(150, 45)
-        btnExitAcc.TabIndex = 303
-        btnExitAcc.Text = "Exit"
-        btnExitAcc.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnExitAcc, "Exit Accounting Centre")
-        btnExitAcc.UseVisualStyleBackColor = False
+        btnUserInfo.BackColor = Color.Transparent
+        btnUserInfo.FlatAppearance.BorderSize = 0
+        btnUserInfo.FlatStyle = FlatStyle.Flat
+        btnUserInfo.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnUserInfo.ForeColor = Color.Black
+        btnUserInfo.Image = CType(resources.GetObject("btnUserInfo.Image"), Image)
+        btnUserInfo.ImageAlign = ContentAlignment.MiddleLeft
+        btnUserInfo.Location = New Point(0, 23)
+        btnUserInfo.Name = "btnUserInfo"
+        btnUserInfo.Size = New Size(150, 45)
+        btnUserInfo.TabIndex = 101
+        btnUserInfo.Text = "User Info"
+        btnUserInfo.TextImageRelation = TextImageRelation.ImageBeforeText
+        ToolTip1.SetToolTip(btnUserInfo, "User Accounts")
+        btnUserInfo.UseVisualStyleBackColor = False
         ' 
         ' btnExitExport
         ' 
@@ -279,7 +202,7 @@ Partial Class frmMainUI
         btnExitClinic.ForeColor = Color.Black
         btnExitClinic.Image = CType(resources.GetObject("btnExitClinic.Image"), Image)
         btnExitClinic.ImageAlign = ContentAlignment.MiddleLeft
-        btnExitClinic.Location = New Point(0, 329)
+        btnExitClinic.Location = New Point(0, 380)
         btnExitClinic.Name = "btnExitClinic"
         btnExitClinic.Size = New Size(150, 45)
         btnExitClinic.TabIndex = 207
@@ -314,13 +237,13 @@ Partial Class frmMainUI
         btnMessage.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnMessage.Image = CType(resources.GetObject("btnMessage.Image"), Image)
         btnMessage.ImageAlign = ContentAlignment.MiddleLeft
-        btnMessage.Location = New Point(0, 278)
+        btnMessage.Location = New Point(0, 329)
         btnMessage.Name = "btnMessage"
         btnMessage.Size = New Size(150, 45)
         btnMessage.TabIndex = 206
-        btnMessage.Text = "Messenger"
+        btnMessage.Text = "Quick Message"
         btnMessage.TextImageRelation = TextImageRelation.ImageBeforeText
-        ToolTip1.SetToolTip(btnMessage, "Leave a short message")
+        ToolTip1.SetToolTip(btnMessage, "Quick Message")
         btnMessage.UseVisualStyleBackColor = False
         ' 
         ' btnMenu
@@ -333,27 +256,52 @@ Partial Class frmMainUI
         btnMenu.ImageAlign = ContentAlignment.MiddleLeft
         btnMenu.Location = New Point(0, 0)
         btnMenu.Name = "btnMenu"
-        btnMenu.Size = New Size(150, 23)
+        btnMenu.Size = New Size(150, 24)
         btnMenu.TabIndex = 0
         ToolTip1.SetToolTip(btnMenu, "Menu")
         btnMenu.UseVisualStyleBackColor = False
         ' 
-        ' pnlAcc
+        ' btnHelp
         ' 
-        pnlAcc.BackColor = SystemColors.ControlDark
-        pnlAcc.Controls.Add(btnExitAcc)
-        pnlAcc.Controls.Add(btnItems)
-        pnlAcc.Controls.Add(btnCheckout)
-        pnlAcc.Location = New Point(60, 431)
-        pnlAcc.Name = "pnlAcc"
-        pnlAcc.Size = New Size(150, 164)
-        pnlAcc.TabIndex = 2
+        btnHelp.BackColor = Color.Transparent
+        btnHelp.FlatAppearance.BorderSize = 0
+        btnHelp.FlatStyle = FlatStyle.Flat
+        btnHelp.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnHelp.ForeColor = Color.Black
+        btnHelp.Image = CType(resources.GetObject("btnHelp.Image"), Image)
+        btnHelp.ImageAlign = ContentAlignment.MiddleLeft
+        btnHelp.Location = New Point(0, 663)
+        btnHelp.Name = "btnHelp"
+        btnHelp.Size = New Size(150, 45)
+        btnHelp.TabIndex = 103
+        btnHelp.Text = "Help"
+        btnHelp.TextImageRelation = TextImageRelation.ImageBeforeText
+        ToolTip1.SetToolTip(btnHelp, "OptoRec Help Guide")
+        btnHelp.UseVisualStyleBackColor = False
+        ' 
+        ' btnSave
+        ' 
+        btnSave.BackColor = SystemColors.GradientInactiveCaption
+        btnSave.FlatAppearance.BorderSize = 0
+        btnSave.FlatStyle = FlatStyle.Flat
+        btnSave.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnSave.Image = CType(resources.GetObject("btnSave.Image"), Image)
+        btnSave.ImageAlign = ContentAlignment.MiddleLeft
+        btnSave.Location = New Point(0, 278)
+        btnSave.Margin = New Padding(4, 3, 4, 3)
+        btnSave.Name = "btnSave"
+        btnSave.Size = New Size(150, 45)
+        btnSave.TabIndex = 34
+        btnSave.Text = "Save"
+        btnSave.TextImageRelation = TextImageRelation.ImageBeforeText
+        ToolTip1.SetToolTip(btnSave, "Save clinical info")
+        btnSave.UseVisualStyleBackColor = False
         ' 
         ' pnlExport
         ' 
         pnlExport.BackColor = SystemColors.ControlDark
         pnlExport.Controls.Add(btnExitExport)
-        pnlExport.Location = New Point(60, 601)
+        pnlExport.Location = New Point(60, 547)
         pnlExport.Name = "pnlExport"
         pnlExport.Size = New Size(150, 79)
         pnlExport.TabIndex = 3
@@ -361,6 +309,7 @@ Partial Class frmMainUI
         ' pnlClinic
         ' 
         pnlClinic.BackColor = SystemColors.ControlDark
+        pnlClinic.Controls.Add(btnSave)
         pnlClinic.Controls.Add(btnMessage)
         pnlClinic.Controls.Add(btnCardio)
         pnlClinic.Controls.Add(btnExitClinic)
@@ -368,9 +317,9 @@ Partial Class frmMainUI
         pnlClinic.Controls.Add(btnExam)
         pnlClinic.Controls.Add(btnHistory)
         pnlClinic.Controls.Add(btnVA)
-        pnlClinic.Location = New Point(60, 287)
+        pnlClinic.Location = New Point(60, 238)
         pnlClinic.Name = "pnlClinic"
-        pnlClinic.Size = New Size(150, 138)
+        pnlClinic.Size = New Size(150, 127)
         pnlClinic.TabIndex = 2
         ' 
         ' pnlThickBorder
@@ -380,18 +329,17 @@ Partial Class frmMainUI
         pnlThickBorder.Dock = DockStyle.Top
         pnlThickBorder.Location = New Point(0, 0)
         pnlThickBorder.Name = "pnlThickBorder"
-        pnlThickBorder.Size = New Size(150, 23)
+        pnlThickBorder.Size = New Size(150, 27)
         pnlThickBorder.TabIndex = 0
         ' 
         ' pnlMenu
         ' 
         pnlMenu.BackColor = SystemColors.ControlDark
+        pnlMenu.Controls.Add(btnHelp)
         pnlMenu.Controls.Add(pnlThickBorder)
         pnlMenu.Controls.Add(pnlClinic)
         pnlMenu.Controls.Add(pnlExport)
-        pnlMenu.Controls.Add(pnlAcc)
-        pnlMenu.Controls.Add(btnNewUser)
-        pnlMenu.Controls.Add(btnUser)
+        pnlMenu.Controls.Add(btnUserInfo)
         pnlMenu.Dock = DockStyle.Left
         pnlMenu.Location = New Point(0, 0)
         pnlMenu.Name = "pnlMenu"
@@ -407,7 +355,6 @@ Partial Class frmMainUI
         Controls.Add(pnlMain)
         Controls.Add(pnlTitle)
         Controls.Add(pnlMenu)
-        FormBorderStyle = FormBorderStyle.FixedSingle
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "frmMainUI"
         StartPosition = FormStartPosition.CenterScreen
@@ -415,7 +362,6 @@ Partial Class frmMainUI
         ToolTip1.SetToolTip(Me, "Menu")
         pnlTitle.ResumeLayout(False)
         pnlTitle.PerformLayout()
-        pnlAcc.ResumeLayout(False)
         pnlExport.ResumeLayout(False)
         pnlClinic.ResumeLayout(False)
         pnlThickBorder.ResumeLayout(False)
@@ -427,12 +373,7 @@ Partial Class frmMainUI
     Friend WithEvents pnlMain As Panel
     Friend WithEvents lblTitle As Label
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents btnUser As Button
-    Friend WithEvents btnNewUser As Button
-    Friend WithEvents pnlAcc As Panel
-    Friend WithEvents btnExitAcc As Button
-    Friend WithEvents btnItems As Button
-    Friend WithEvents btnCheckout As Button
+    Friend WithEvents btnUserInfo As Button
     Friend WithEvents pnlExport As Panel
     Friend WithEvents btnExitExport As Button
     Friend WithEvents pnlClinic As Panel
@@ -446,4 +387,6 @@ Partial Class frmMainUI
     Friend WithEvents pnlThickBorder As Panel
     Friend WithEvents pnlMenu As Panel
     Friend WithEvents btnMenu As Button
+    Friend WithEvents btnHelp As Button
+    Friend WithEvents btnSave As Button
 End Class

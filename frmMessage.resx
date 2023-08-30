@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -144,7 +144,7 @@
   <data name="btnRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAkdJREFUSEvNlT9IVVEcx69lSSIUEoEOpUbloJOVUBHV4p/BxaGGxqJFCLXUoVEJ
+        wQAADsEBuJFr7QAAAkdJREFUSEvNlT9IVVEcx69lSSIUEoEOpUbloJOVUBHV4p/BxaGGxqJFCLXUoVEJ
         ahBxaM3UxSUKagxX1xJEQR2KcLB0EDPo3+dz3zuRz+f1Pp5DX/jAOeee8zvn/M73nBv9LzoAdXA5i2Xb
         itYFGIOv8DuHL+A3+xSsYzABv2AJhqAdGrNYts1v9rGvY1LpFMzDGtyBg6AOQy2YHsvKb/ZZB8echES5
         CjsuwxkbkDl/Dd8gpMeybVfgBNh/Fo5CotyqKze4h/gUTMEHeAgtWSy/B799hBWogUoIO94hD8sBblkZ
@@ -163,7 +163,7 @@
   <data name="btnEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAASxJREFUSEvtlTFOw0AQRRdBgWhQDkBFClqQ6ElFQ4k4A0qTWyCORIGooQlXSFKE
+        wQAADsEBuJFr7QAAASxJREFUSEvtlTFOw0AQRRdBgWhQDkBFClqQ6ElFQ4k4A0qTWyCORIGooQlXSFKE
         kgoqBLxny5EdBXm8WKLhS09e26v/Peu1J/WsU5jBEkZe6FOav8ITPMAb9BZSmX/BJeyBIVZSaAeGcBRk
         FypV5o9wB+9giJW4XOkE5mB6lBtQdfN9MNgQ53jd+2kKz3AOZ0EGsG6uPHq+MlefMC6HYYXNleVcl8OQ
         OpmrLgGdzVU0IMtcRQIi5r54d1d9CxdqC9iCF2h7cneXXn4nDbUFHIJzLoqzn5clO+AKnOMHacgmc5Ud

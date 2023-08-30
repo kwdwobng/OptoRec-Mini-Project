@@ -11,9 +11,9 @@ Public Class CompForm1
     Dim formName As String = "EYE HEALTH EXAMINATION FORM"
 
     Private Sub CompForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        frmMainComp.lblTitle.Select()
+
         'Clinic name
-        lblTitle.Text = frmUAC.clinic_name.ToUpper & vbCrLf & formName
-        'Biodata
         txtCardNum.Text = frmConsultView.card_num
         txtFirstName.Text = frmConsultView.first_name
         txtSurname.Text = frmConsultView.surname

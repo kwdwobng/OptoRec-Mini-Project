@@ -29,7 +29,7 @@ Public Class frmMessage
 
     'Save message
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        sqlQuery = "UPDATE message SET message = '" & TextBox1.Text & "' WHERE account_id = " & frmUAC.account_id & ";"
+        sqlQuery = "UPDATE message SET message = '" & TextBox1.Text & "' WHERE account_id = " & frmClientCentre.account_id & ";"
         Try
             DB.sqlConnect.Open()
             sqlComm.CommandText = sqlQuery
@@ -53,7 +53,7 @@ Public Class frmMessage
     'View saved message
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
         TextBox1.ReadOnly = True
-        sqlQuery = "SELECT message FROM message WHERE account_id = " & frmUAC.account_id & ";"
+        sqlQuery = "SELECT message FROM message WHERE account_id = " & frmClientCentre.account_id & ";"
         Try
             DB.sqlConnect.Open()
             sqlComm.CommandText = sqlQuery

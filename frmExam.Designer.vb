@@ -23,7 +23,6 @@ Partial Class frmExam
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmExam))
         txtOdLids = New TextBox()
         txtOdConjuct = New TextBox()
         txtOdCornea = New TextBox()
@@ -70,7 +69,6 @@ Partial Class frmExam
         Label14 = New Label()
         Label15 = New Label()
         btnNext = New Button()
-        btnUpdateAcc = New Button()
         btnPrev = New Button()
         Label16 = New Label()
         Label17 = New Label()
@@ -536,7 +534,7 @@ Partial Class frmExam
         btnNext.FlatStyle = FlatStyle.Flat
         btnNext.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnNext.Image = My.Resources.Resources.right_arrow
-        btnNext.Location = New Point(1104, 21)
+        btnNext.Location = New Point(1110, 21)
         btnNext.Margin = New Padding(4, 3, 4, 3)
         btnNext.Name = "btnNext"
         btnNext.Size = New Size(68, 45)
@@ -544,29 +542,13 @@ Partial Class frmExam
         ToolTip1.SetToolTip(btnNext, "Next form")
         btnNext.UseVisualStyleBackColor = False
         ' 
-        ' btnUpdateAcc
-        ' 
-        btnUpdateAcc.BackColor = SystemColors.GradientInactiveCaption
-        btnUpdateAcc.FlatStyle = FlatStyle.Flat
-        btnUpdateAcc.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnUpdateAcc.Image = CType(resources.GetObject("btnUpdateAcc.Image"), Image)
-        btnUpdateAcc.ImageAlign = ContentAlignment.MiddleLeft
-        btnUpdateAcc.Location = New Point(1031, 641)
-        btnUpdateAcc.Margin = New Padding(4, 3, 4, 3)
-        btnUpdateAcc.Name = "btnUpdateAcc"
-        btnUpdateAcc.Size = New Size(141, 45)
-        btnUpdateAcc.TabIndex = 33
-        btnUpdateAcc.Text = "Save"
-        ToolTip1.SetToolTip(btnUpdateAcc, "Save info")
-        btnUpdateAcc.UseVisualStyleBackColor = False
-        ' 
         ' btnPrev
         ' 
         btnPrev.BackColor = SystemColors.Control
         btnPrev.FlatStyle = FlatStyle.Flat
         btnPrev.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnPrev.Image = My.Resources.Resources.left_arrow
-        btnPrev.Location = New Point(1028, 21)
+        btnPrev.Location = New Point(1034, 21)
         btnPrev.Margin = New Padding(4, 3, 4, 3)
         btnPrev.Name = "btnPrev"
         btnPrev.Size = New Size(68, 45)
@@ -602,7 +584,7 @@ Partial Class frmExam
         ' 
         txtBioTag.BackColor = Color.WhiteSmoke
         txtBioTag.BorderStyle = BorderStyle.FixedSingle
-        txtBioTag.Location = New Point(12, 21)
+        txtBioTag.Location = New Point(18, 21)
         txtBioTag.Name = "txtBioTag"
         txtBioTag.ReadOnly = True
         txtBioTag.Size = New Size(406, 24)
@@ -659,7 +641,7 @@ Partial Class frmExam
         GroupBox1.Controls.Add(txtOdCornea)
         GroupBox1.Controls.Add(txtOdConjuct)
         GroupBox1.Controls.Add(txtOdLids)
-        GroupBox1.Location = New Point(12, 72)
+        GroupBox1.Location = New Point(18, 72)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(1160, 563)
         GroupBox1.TabIndex = 54
@@ -675,14 +657,12 @@ Partial Class frmExam
         Controls.Add(txtBioTag)
         Controls.Add(GroupBox1)
         Controls.Add(btnNext)
-        Controls.Add(btnUpdateAcc)
         Controls.Add(btnPrev)
         Font = New Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.None
         Margin = New Padding(4, 3, 4, 3)
         MaximizeBox = False
         Name = "frmExam"
-        StartPosition = FormStartPosition.CenterScreen
         Text = "Clinical Examination"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
@@ -736,7 +716,6 @@ Partial Class frmExam
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents btnNext As Button
-    Friend WithEvents btnUpdateAcc As Button
     Friend WithEvents btnPrev As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label

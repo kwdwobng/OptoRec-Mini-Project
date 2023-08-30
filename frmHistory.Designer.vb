@@ -23,7 +23,6 @@ Partial Class frmHistory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmHistory))
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
@@ -61,7 +60,6 @@ Partial Class frmHistory
         chkFront = New CheckBox()
         chkHalo = New CheckBox()
         chkFloat = New CheckBox()
-        btnUpdateAcc = New Button()
         btnNext = New Button()
         txtDdx = New TextBox()
         lblDdx = New Label()
@@ -98,7 +96,7 @@ Partial Class frmHistory
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label3.Location = New Point(17, 271)
+        Label3.Location = New Point(16, 285)
         Label3.Name = "Label3"
         Label3.Size = New Size(45, 20)
         Label3.TabIndex = 2
@@ -120,7 +118,7 @@ Partial Class frmHistory
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label5.Location = New Point(8, 704)
+        Label5.Location = New Point(616, 33)
         Label5.Name = "Label5"
         Label5.Size = New Size(81, 20)
         Label5.TabIndex = 4
@@ -131,7 +129,7 @@ Partial Class frmHistory
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label6.Location = New Point(614, 33)
+        Label6.Location = New Point(616, 151)
         Label6.Name = "Label6"
         Label6.Size = New Size(34, 20)
         Label6.TabIndex = 5
@@ -142,7 +140,7 @@ Partial Class frmHistory
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label7.Location = New Point(614, 150)
+        Label7.Location = New Point(616, 259)
         Label7.Name = "Label7"
         Label7.Size = New Size(70, 20)
         Label7.TabIndex = 6
@@ -153,7 +151,7 @@ Partial Class frmHistory
         ' 
         Label8.AutoSize = True
         Label8.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label8.Location = New Point(617, 207)
+        Label8.Location = New Point(614, 324)
         Label8.Name = "Label8"
         Label8.Size = New Size(31, 20)
         Label8.TabIndex = 7
@@ -164,7 +162,7 @@ Partial Class frmHistory
         ' 
         Label9.AutoSize = True
         Label9.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label9.Location = New Point(617, 328)
+        Label9.Location = New Point(616, 439)
         Label9.Name = "Label9"
         Label9.Size = New Size(41, 20)
         Label9.TabIndex = 8
@@ -175,7 +173,7 @@ Partial Class frmHistory
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        Label10.Location = New Point(616, 445)
+        Label10.Location = New Point(614, 552)
         Label10.Name = "Label10"
         Label10.Size = New Size(43, 20)
         Label10.TabIndex = 9
@@ -185,7 +183,7 @@ Partial Class frmHistory
         ' txtPC
         ' 
         txtPC.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtPC.Location = New Point(94, 28)
+        txtPC.Location = New Point(95, 26)
         txtPC.Multiline = True
         txtPC.Name = "txtPC"
         txtPC.Size = New Size(501, 111)
@@ -213,7 +211,7 @@ Partial Class frmHistory
         ' txtPMH
         ' 
         txtPMH.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtPMH.Location = New Point(95, 695)
+        txtPMH.Location = New Point(703, 26)
         txtPMH.Multiline = True
         txtPMH.Name = "txtPMH"
         txtPMH.Size = New Size(501, 111)
@@ -222,7 +220,7 @@ Partial Class frmHistory
         ' txtDH
         ' 
         txtDH.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtDH.Location = New Point(707, 33)
+        txtDH.Location = New Point(703, 143)
         txtDH.Multiline = True
         txtDH.Name = "txtDH"
         txtDH.Size = New Size(501, 106)
@@ -231,7 +229,7 @@ Partial Class frmHistory
         ' txtAllerg
         ' 
         txtAllerg.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtAllerg.Location = New Point(707, 145)
+        txtAllerg.Location = New Point(703, 255)
         txtAllerg.Multiline = True
         txtAllerg.Name = "txtAllerg"
         txtAllerg.Size = New Size(502, 55)
@@ -240,7 +238,7 @@ Partial Class frmHistory
         ' txtSH
         ' 
         txtSH.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtSH.Location = New Point(707, 206)
+        txtSH.Location = New Point(704, 316)
         txtSH.Multiline = True
         txtSH.Name = "txtSH"
         txtSH.Size = New Size(501, 111)
@@ -249,7 +247,7 @@ Partial Class frmHistory
         ' txtFOH
         ' 
         txtFOH.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtFOH.Location = New Point(707, 323)
+        txtFOH.Location = New Point(704, 432)
         txtFOH.Multiline = True
         txtFOH.Name = "txtFOH"
         txtFOH.Size = New Size(501, 111)
@@ -258,7 +256,7 @@ Partial Class frmHistory
         ' txtFMH
         ' 
         txtFMH.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtFMH.Location = New Point(706, 440)
+        txtFMH.Location = New Point(703, 549)
         txtFMH.Multiline = True
         txtFMH.Name = "txtFMH"
         txtFMH.Size = New Size(501, 111)
@@ -270,7 +268,7 @@ Partial Class frmHistory
         btnPrev.FlatStyle = FlatStyle.Flat
         btnPrev.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnPrev.Image = My.Resources.Resources.left_arrow
-        btnPrev.Location = New Point(1105, 21)
+        btnPrev.Location = New Point(1108, 21)
         btnPrev.Name = "btnPrev"
         btnPrev.Size = New Size(68, 45)
         btnPrev.TabIndex = 30
@@ -477,28 +475,13 @@ Partial Class frmHistory
         chkFloat.Text = "Floaters"
         chkFloat.UseVisualStyleBackColor = True
         ' 
-        ' btnUpdateAcc
-        ' 
-        btnUpdateAcc.BackColor = SystemColors.GradientInactiveCaption
-        btnUpdateAcc.FlatStyle = FlatStyle.Flat
-        btnUpdateAcc.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnUpdateAcc.Image = CType(resources.GetObject("btnUpdateAcc.Image"), Image)
-        btnUpdateAcc.ImageAlign = ContentAlignment.MiddleLeft
-        btnUpdateAcc.Location = New Point(1106, 909)
-        btnUpdateAcc.Name = "btnUpdateAcc"
-        btnUpdateAcc.Size = New Size(141, 45)
-        btnUpdateAcc.TabIndex = 29
-        btnUpdateAcc.Text = "Save"
-        ToolTip1.SetToolTip(btnUpdateAcc, "Save info")
-        btnUpdateAcc.UseVisualStyleBackColor = False
-        ' 
         ' btnNext
         ' 
         btnNext.BackColor = SystemColors.Control
         btnNext.FlatStyle = FlatStyle.Flat
         btnNext.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
         btnNext.Image = My.Resources.Resources.right_arrow
-        btnNext.Location = New Point(1179, 21)
+        btnNext.Location = New Point(1182, 21)
         btnNext.Name = "btnNext"
         btnNext.Size = New Size(68, 45)
         btnNext.TabIndex = 31
@@ -508,7 +491,7 @@ Partial Class frmHistory
         ' txtDdx
         ' 
         txtDdx.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        txtDdx.Location = New Point(706, 557)
+        txtDdx.Location = New Point(704, 666)
         txtDdx.Multiline = True
         txtDdx.Name = "txtDdx"
         txtDdx.Size = New Size(501, 55)
@@ -518,7 +501,7 @@ Partial Class frmHistory
         ' 
         lblDdx.AutoSize = True
         lblDdx.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        lblDdx.Location = New Point(616, 562)
+        lblDdx.Location = New Point(614, 669)
         lblDdx.Name = "lblDdx"
         lblDdx.Size = New Size(84, 40)
         lblDdx.TabIndex = 29
@@ -529,7 +512,7 @@ Partial Class frmHistory
         ' 
         txtBioTag.BackColor = Color.WhiteSmoke
         txtBioTag.BorderStyle = BorderStyle.FixedSingle
-        txtBioTag.Location = New Point(15, 21)
+        txtBioTag.Location = New Point(18, 21)
         txtBioTag.Name = "txtBioTag"
         txtBioTag.ReadOnly = True
         txtBioTag.Size = New Size(406, 27)
@@ -561,9 +544,9 @@ Partial Class frmHistory
         GroupBox2.Controls.Add(Label3)
         GroupBox2.Controls.Add(Label2)
         GroupBox2.Controls.Add(Label1)
-        GroupBox2.Location = New Point(15, 72)
+        GroupBox2.Location = New Point(18, 72)
         GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(1232, 831)
+        GroupBox2.Size = New Size(1232, 757)
         GroupBox2.TabIndex = 30
         GroupBox2.TabStop = False
         ' 
@@ -573,16 +556,14 @@ Partial Class frmHistory
         AutoScaleMode = AutoScaleMode.Font
         AutoScroll = True
         BackColor = SystemColors.ControlLightLight
-        ClientSize = New Size(1280, 1026)
+        ClientSize = New Size(1280, 870)
         Controls.Add(txtBioTag)
         Controls.Add(GroupBox2)
         Controls.Add(btnNext)
-        Controls.Add(btnUpdateAcc)
         Controls.Add(btnPrev)
         FormBorderStyle = FormBorderStyle.None
         MaximizeBox = False
         Name = "frmHistory"
-        StartPosition = FormStartPosition.CenterScreen
         Text = "History"
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
@@ -629,7 +610,6 @@ Partial Class frmHistory
     Friend WithEvents chkBurn As CheckBox
     Friend WithEvents chkItch As CheckBox
     Friend WithEvents chkRed As CheckBox
-    Friend WithEvents btnUpdateAcc As Button
     Friend WithEvents btnNext As Button
     Friend WithEvents txtDdx As TextBox
     Friend WithEvents lblDdx As Label

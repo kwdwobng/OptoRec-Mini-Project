@@ -296,7 +296,7 @@ Partial Class frmNewClient
         btnExit.Size = New Size(141, 45)
         btnExit.TabIndex = 14
         btnExit.Text = "Exit"
-        ToolTip1.SetToolTip(btnExit, "Exit to client centre")
+        ToolTip1.SetToolTip(btnExit, "Exit to Client Centre")
         btnExit.UseVisualStyleBackColor = False
         ' 
         ' btnSaveAcc

@@ -82,9 +82,9 @@ Partial Class frmConsultView
         Label1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.Location = New Point(12, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(198, 20)
+        Label1.Size = New Size(233, 20)
         Label1.TabIndex = 5
-        Label1.Text = "Complete clinical records of:" & vbCrLf
+        Label1.Text = "Complete consultation records of:" & vbCrLf
         ' 
         ' frmConsultView
         ' 
@@ -99,9 +99,7 @@ Partial Class frmConsultView
         FormBorderStyle = FormBorderStyle.FixedSingle
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
-        MinimizeBox = False
         Name = "frmConsultView"
-        ShowInTaskbar = False
         Text = "Consult Portal"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)

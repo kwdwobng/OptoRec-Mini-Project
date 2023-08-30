@@ -1,39 +1,14 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Runtime.Intrinsics.X86
+Imports MySql.Data.MySqlClient
 
 'Add history findings
 Public Class frmHistory
-    Dim odq, front, temp, occip, pain, photo, diplo, red, burn, halo, dischar, float, flash, prick, tear, itch, grit As String
-    Dim sqlConn As New MySqlConnection
-    Dim sqlComm As New MySqlCommand
-    Dim sqlQuery As String
-    Dim sqlReader As MySqlDataReader
-    Dim dialog As DialogResult
-    Dim card_num, surname, first_name, other_name, age As String
+    Public front, temp, occip, pain, photo, diplo, red, burn, halo, discharge, float, flash, prick, tear, itch, grit As String
+    Public PC, HPC, POH, FOH, SH, DH, FMH, PMH, Ddx, allergies As String
 
     Private Sub frmHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtPC.Select()
-
-        sqlQuery = "SELECT card_num, first_name, other_name, surname, timestampdiff(YEAR, birth_date, curdate()) AS 'Age' FROM biodata WHERE client_id =" & frmClientCentre.client_id & ";"
-        Try
-            DB.sqlConnect.Open()
-            sqlComm.CommandText = sqlQuery
-            sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
-            sqlReader = sqlComm.ExecuteReader
-            While sqlReader.Read
-                card_num = sqlReader.GetString("card_num")
-                first_name = sqlReader.GetString("first_name")
-                other_name = sqlReader.GetString("other_name")
-                surname = sqlReader.GetString("surname")
-                age = sqlReader.GetString("Age")
-            End While
-
-            DB.sqlConnect.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        Finally
-            DB.sqlConnect.Dispose()
-        End Try
-        txtBioTag.Text = card_num & ", " & first_name & " " & other_name & " " & surname & ", " & age & " years old"
+        txtBioTag.Select()
+        txtBioTag.Text = frmCardio.BioTag
     End Sub
 
     Private Sub chkFront_CheckedChanged(sender As Object, e As EventArgs) Handles chkFront.CheckedChanged
@@ -73,7 +48,7 @@ Public Class frmHistory
     End Sub
 
     Private Sub chkDisch_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisch.CheckedChanged
-        dischar = "Discharge "
+        discharge = "Discharge "
     End Sub
 
     Private Sub chkTear_CheckedChanged(sender As Object, e As EventArgs) Handles chkTear.CheckedChanged
@@ -100,57 +75,56 @@ Public Class frmHistory
         red = "Redness "
     End Sub
 
+    Private Sub txtPC_TextChanged(sender As Object, e As EventArgs) Handles txtPC.TextChanged
+        PC = txtPC.Text
+    End Sub
+
+    Private Sub txtHPC_TextChanged(sender As Object, e As EventArgs) Handles txtHPC.TextChanged
+        HPC = txtHPC.Text
+    End Sub
+
+    Private Sub txtPOH_TextChanged(sender As Object, e As EventArgs) Handles txtPOH.TextChanged
+        POH = txtPOH.Text
+    End Sub
+
+    Private Sub txtPMH_TextChanged(sender As Object, e As EventArgs) Handles txtPMH.TextChanged
+        PMH = txtPMH.Text
+    End Sub
+
+    Private Sub txtDH_TextChanged(sender As Object, e As EventArgs) Handles txtDH.TextChanged
+        DH = txtDH.Text
+    End Sub
+
+    Private Sub txtAllerg_TextChanged(sender As Object, e As EventArgs) Handles txtAllerg.TextChanged
+        allergies = txtAllerg.Text
+    End Sub
+
+    Private Sub txtSH_TextChanged(sender As Object, e As EventArgs) Handles txtSH.TextChanged
+        SH = txtSH.Text
+    End Sub
+
+    Private Sub txtFOH_TextChanged(sender As Object, e As EventArgs) Handles txtFOH.TextChanged
+        FOH = txtFOH.Text
+    End Sub
+
+    Private Sub txtFMH_TextChanged(sender As Object, e As EventArgs) Handles txtFMH.TextChanged
+        FMH = txtFMH.Text
+    End Sub
+
+    Private Sub txtDdx_TextChanged(sender As Object, e As EventArgs) Handles txtDdx.TextChanged
+        Ddx = txtDdx.Text
+    End Sub
+
+
     'Go to VA form
     Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
-        Dim dialog As DialogResult
-        dialog = MessageBox.Show("Have you saved your data before exiting the '" & frmMainUI.lblTitle.Text & "' form?", "Exit", MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question)
-        If dialog = DialogResult.Yes Then
-            frmMainUI.ViewInPanel(frmVA)
-            Hide()
-        End If
+        frmMainUI.ViewInPanel(frmVA)
+        Hide()
     End Sub
 
     'Go to history form
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-        Dim dialog As DialogResult
-        dialog = MessageBox.Show("Have you saved your data before exiting the '" & frmMainUI.lblTitle.Text & "' form?", "Exit", MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question)
-        If dialog = DialogResult.Yes Then
-            frmMainUI.ViewInPanel(frmExam)
-            Hide()
-        End If
+        frmMainUI.ViewInPanel(frmExam)
+        Hide()
     End Sub
-
-    'Save info to database
-    Private Sub btnUpdateAcc_Click(sender As Object, e As EventArgs) Handles btnUpdateAcc.Click
-        odq = front & temp & occip & pain & photo & diplo & red & burn & halo & float & flash & prick & dischar & tear & itch & grit
-
-        If Not odq = "" Then
-            odq = Replace(odq, " ", ", ")
-            odq = Replace(odq, "_", " ")
-            odq = odq.Remove(odq.LastIndexOf(","))
-        End If
-
-        sqlQuery = "UPDATE patient_hist SET pc_cc='" & txtPC.Text & "', hpc='" & txtHPC.Text & "', odq='" & odq & "', poh='" & txtPOH.Text & "',pmh_psh='" _
-            & txtPMH.Text & "', dh ='" & txtDH.Text & "', allergy ='" & txtAllerg.Text & "', sh ='" & txtSH.Text & "', foh ='" & txtFOH.Text & "', fmh ='" _
-            & txtFMH.Text & "', ddx='" & txtDdx.Text & "' WHERE consult_id =(SELECT MAX(consult_id) FROM consult);"
-        dialog = MessageBox.Show("Do want to update the current data entries in your record?", "Update Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk)
-        If dialog = DialogResult.Yes Then
-            Try
-                DB.sqlConnect.Open()
-                sqlComm.CommandText = sqlQuery
-                sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
-                sqlReader = sqlComm.ExecuteReader
-                MessageBox.Show("Data Updated")
-                sqlConn.Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            Finally
-                DB.sqlConnect.Dispose()
-            End Try
-        End If
-    End Sub
-
-
 End Class

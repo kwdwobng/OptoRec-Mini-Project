@@ -1,8 +1,12 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Window
+Imports MySql.Data.MySqlClient
+Imports OptoRec_1.My
 
 'Configure, create and test database settings
 Public Class frmDBConfig
     Dim sqlCommand As New MySqlCommand
+    Dim sqlCon As New MySqlConnection
+    Dim server, uid, port, password As String
     Private Sub frmDBConfig_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Select()
         My.Settings.Reload()
@@ -11,30 +15,50 @@ Public Class frmDBConfig
         txtUID.PlaceholderText = My.Settings.setUID
     End Sub
 
+    'Check connection string
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        Dim dialog As DialogResult
         Try
+            sqlCon.ConnectionString = "server=" & txtServer.Text & ";port=" & txtPort.Text & ";userid=" & txtUID.Text & ";password=" & txtPassword.Text & ";database=;"
+            sqlCon.Open()
+            MessageBox.Show("Successful connection!")
+            sqlCon.Close()
+            'Save connection string
             My.Settings.setServer = txtServer.Text
             My.Settings.setPort = txtPort.Text
             My.Settings.setUID = txtUID.Text
             My.Settings.setPassword = txtPassword.Text
-            My.Settings.setDB = ""
+            My.Settings.setDB = "opto_rec_1"
             My.Settings.Save()
-            DB.sqlConnect.Open()
-            MessageBox.Show("Successful connection!")
-            DB.sqlConnect.Close()
+            btnCreate.Enabled = True
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            My.Settings.Reset()
+            btnTest.Enabled = False
+            btnCreate.Enabled = False
+        Finally
+            sqlCon.Dispose()
+        End Try
+
+        'Check database connection
+        Try
+            DB.sqlConnect.Open()
+            DB.sqlConnect.Close()
+            btnCreate.Enabled = False
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            dialog = MessageBox.Show("Click 'OK' to apply connection settings and restart application in order to setup a database", "Exit",
+                                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+            If dialog = DialogResult.OK Then
+                Windows.Forms.Application.Restart()
+            End If
         Finally
             DB.sqlConnect.Dispose()
         End Try
-        Dim dialog As DialogResult
-        dialog = MessageBox.Show("Do you want to apply configurations? If yes, click 'Yes' to restart application", "Apply Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-        If dialog = DialogResult.Yes Then
-            Windows.Forms.Application.Restart()
-        End If
 
     End Sub
 
+    'Setup database
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         Dim sqlQuery As String = "CREATE DATABASE IF NOT EXISTS opto_rec_1; USE opto_rec_1;
                                     CREATE TABLE IF NOT EXISTS acc_info(
@@ -158,29 +182,9 @@ Public Class frmDBConfig
                                     added_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                     PRIMARY KEY (consult_id)
                                     );
-                                    CREATE TABLE IF NOT EXISTS items(
-                                    account_id INT,
-                                    item_id INT AUTO_INCREMENT,
-                                    item_name VARCHAR(50) NOT NULL,
-                                    cost DECIMAL(6, 2) NOT NULL,
-                                    added_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                    PRIMARY KEY (item_id)
-                                    );
-                                    CREATE TABLE IF NOT EXISTS checkout(
-                                    receipt_id INT,
-                                    item_id INT,
-                                    client_id INT,
-                                    quantity INT,
-                                    added_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                                    );
-                                    CREATE TABLE IF NOT EXISTS receipts(
-                                    receipt_id INT AUTO_INCREMENT,
-                                    added_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                    PRIMARY KEY(receipt_id)
-                                    );
                                     CREATE TABLE IF NOT EXISTS message(
                                     account_id INT,
-                                    message VARCHAR(255)
+                                    message VARCHAR(1000)
                                     );
                                     CREATE TABLE IF NOT EXISTS acc_info_archive(
                                     account_id INT,
@@ -212,55 +216,21 @@ Public Class frmDBConfig
                                     religion VARCHAR(50),
                                     email VARCHAR(50),
                                     added_on TIMESTAMP
-                                    );
-                                    CREATE TABLE IF NOT EXISTS items_archive(
-                                    account_id INT,
-                                    item_id INT,
-                                    item_name VARCHAR(50) NOT NULL,
-                                    cost DECIMAL(6, 2) NOT NULL,
-                                    added_on TIMESTAMP
-                                    );
-                                    CREATE TABLE IF NOT EXISTS checkout_archive(
-                                    receipt_id INT,
-                                    item_id INT,
-                                    client_id INT,
-                                    quantity INT,
-                                    added_on TIMESTAMP
                                     );"
-
+        My.Settings.Reload()
         Try
-
             DB.sqlConnect.Open()
             sqlCommand.CommandText = sqlQuery
             sqlCommand = New MySqlCommand(sqlQuery, DB.sqlConnect)
             sqlCommand.ExecuteNonQuery()
             MessageBox.Show("Database successfully created")
             DB.sqlConnect.Close()
-
-            My.Settings.setDB = "opto_rec_1"
-            My.Settings.Save()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
             DB.sqlConnect.Dispose()
         End Try
 
-        Dim dialog As DialogResult
-        dialog = MessageBox.Show("Do you want to apply configurations? If yes, click 'Yes' to restart application", "Apply Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-        If dialog = DialogResult.Yes Then
-            Windows.Forms.Application.Restart()
-        End If
-    End Sub
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Dim dialog As DialogResult
-        dialog = MessageBox.Show("Have you saved your settings?", "Save Settings", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If dialog = DialogResult.Yes Then
-            Dispose()
-            frmStart.Show()
-            Hide()
-        Else
-            Show()
-        End If
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -270,4 +240,29 @@ Public Class frmDBConfig
             txtPassword.UseSystemPasswordChar = True
         End If
     End Sub
+
+    'Clear text, reset connection string
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        txtServer.Text = ""
+        txtPort.Text = ""
+        txtUID.Text = ""
+        txtPassword.Text = ""
+        My.Settings.setServer = txtServer.Text
+        My.Settings.setPort = txtPort.Text
+        My.Settings.setUID = txtUID.Text
+        My.Settings.setPassword = txtPassword.Text
+        My.Settings.Save()
+        btnTest.Enabled = True
+        btnCreate.Enabled = True
+    End Sub
+
+    'Apply settings and exit
+    Private Sub btnApply_Click(sender As Object, e As EventArgs) Handles btnApply.Click
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do you want to apply configuration settings? If 'Yes' application will be restarted.", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If dialog = DialogResult.Yes Then
+            Windows.Forms.Application.Restart()
+        End If
+    End Sub
+
 End Class

@@ -35,7 +35,7 @@ Partial Class frmMessage
         ' 
         TextBox1.BorderStyle = BorderStyle.FixedSingle
         TextBox1.Location = New Point(12, 12)
-        TextBox1.MaxLength = 255
+        TextBox1.MaxLength = 1000
         TextBox1.Multiline = True
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(373, 147)

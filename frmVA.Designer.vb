@@ -23,7 +23,6 @@ Partial Class frmVA
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmVA))
         lblVA = New Label()
         lblOs = New Label()
         lblOd = New Label()
@@ -49,7 +48,6 @@ Partial Class frmVA
         txtPdIn = New TextBox()
         txtPdOut = New TextBox()
         lblPD = New Label()
-        btnUpdateAcc = New Button()
         btnNext = New Button()
         ToolTip1 = New ToolTip(components)
         btnPrev = New Button()
@@ -299,21 +297,6 @@ Partial Class frmVA
         lblPD.TabIndex = 2
         lblPD.Text = "PD (mm):"
         ' 
-        ' btnUpdateAcc
-        ' 
-        btnUpdateAcc.BackColor = SystemColors.GradientInactiveCaption
-        btnUpdateAcc.FlatStyle = FlatStyle.Flat
-        btnUpdateAcc.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnUpdateAcc.Image = CType(resources.GetObject("btnUpdateAcc.Image"), Image)
-        btnUpdateAcc.ImageAlign = ContentAlignment.MiddleLeft
-        btnUpdateAcc.Location = New Point(465, 315)
-        btnUpdateAcc.Name = "btnUpdateAcc"
-        btnUpdateAcc.Size = New Size(141, 45)
-        btnUpdateAcc.TabIndex = 13
-        btnUpdateAcc.Text = "Save"
-        ToolTip1.SetToolTip(btnUpdateAcc, "Save info")
-        btnUpdateAcc.UseVisualStyleBackColor = False
-        ' 
         ' btnNext
         ' 
         btnNext.BackColor = SystemColors.Control
@@ -373,18 +356,17 @@ Partial Class frmVA
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        AutoScroll = True
         BackColor = SystemColors.ControlLightLight
         ClientSize = New Size(1280, 720)
         Controls.Add(txtBioTag)
         Controls.Add(btnPrev)
         Controls.Add(GroupBox1)
         Controls.Add(btnNext)
-        Controls.Add(btnUpdateAcc)
         Controls.Add(grpVA)
         FormBorderStyle = FormBorderStyle.None
         MaximizeBox = False
         Name = "frmVA"
-        StartPosition = FormStartPosition.CenterScreen
         Text = "Refraction"
         grpVA.ResumeLayout(False)
         grpVA.PerformLayout()
@@ -402,7 +384,6 @@ Partial Class frmVA
     Friend WithEvents lblPlus1 As Label
     Friend WithEvents lblPhTest As Label
     Friend WithEvents grpVA As GroupBox
-    Friend WithEvents btnUpdateAcc As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents txtLmono As TextBox

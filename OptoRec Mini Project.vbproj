@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
     <RootNamespace>OptoRec_1</RootNamespace>
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
@@ -11,24 +11,62 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="frmAccEditPass.Designer.vb" />
+    <Compile Remove="frmAccEditPass.vb" />
+    <Compile Remove="frmCheckOut.Designer.vb" />
+    <Compile Remove="frmCheckout.vb" />
+    <Compile Remove="frmItems.Designer.vb" />
+    <Compile Remove="frmItems.vb" />
+    <Compile Remove="frmUAC.Designer.vb" />
+    <Compile Remove="frmUAC.vb" />
     <Compile Remove="frmViewClinical.Designer.vb" />
     <Compile Remove="frmViewClinical.vb" />
+    <Compile Remove="frmViewHistory.Designer.vb" />
+    <Compile Remove="frmViewHistory.vb" />
+    <Compile Remove="frmViewReceipt2.Designer.vb" />
+    <Compile Remove="frmViewReceipt2.vb" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="frmAccEditPass.resx" />
+    <EmbeddedResource Remove="frmCheckout.resx" />
+    <EmbeddedResource Remove="frmItems.resx" />
+    <EmbeddedResource Remove="frmUAC.resx" />
     <EmbeddedResource Remove="frmViewClinical.resx" />
+    <EmbeddedResource Remove="frmViewHistory.resx" />
+    <EmbeddedResource Remove="frmViewReceipt2.resx" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="OptoRec Help Guide.pdf" />
+    <None Remove="Resources\add-user.png" />
+    <None Remove="Resources\blood-pressure.png" />
+    <None Remove="Resources\css1.html" />
+    <None Remove="Resources\group.png" />
+    <None Remove="Resources\home.png" />
+    <None Remove="Resources\images.HTML" />
+    <None Remove="Resources\left-arrow.png" />
+    <None Remove="Resources\magnifying-glass.png" />
+    <None Remove="Resources\OptoRec Alt Logo.png" />
     <None Remove="Resources\OptoRec Alt Solid Logo.png" />
+    <None Remove="Resources\OptoRec Alt Solid.png" />
+    <None Remove="Resources\OptoRec Alt.png" />
+    <None Remove="Resources\OptoRec Help Guide.pdf" />
+    <None Remove="Resources\OptoRec Help.pdf" />
     <None Remove="Resources\OptoRec Solid 1.ico" />
     <None Remove="Resources\OptoRec Solid 128x128.bmp" />
     <None Remove="Resources\OptoRec Solid Square 1.png" />
     <None Remove="Resources\OptoRec Solid Square 2.png" />
     <None Remove="Resources\OptoRec Solid Square 256x256.png" />
     <None Remove="Resources\OptoRec Solid.ico" />
+    <None Remove="Resources\OptoRec-Alt-Solid-Logo.ico" />
+    <None Remove="Resources\OptoRec-Alt-Solid.ico" />
     <None Remove="Resources\OptoRec-Solid-1.ico" />
     <None Remove="Resources\OptoRec-Solid-128x128.ico" />
+    <None Remove="Resources\OptoRec-Solid-Square-256x256.ico" />
+    <None Remove="Resources\right-arrow.png" />
+    <None Remove="Resources\settings.png" />
+    <None Remove="Resources\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,7 +85,6 @@
 
   <ItemGroup>
     <Compile Update="frmAccEdit.vb" />
-    <Compile Update="frmAccEditPass.vb" />
     <Compile Update="My Project\Application.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -83,6 +120,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Update="OptoRec Mini Project Help Guide.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

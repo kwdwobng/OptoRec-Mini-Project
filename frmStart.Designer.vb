@@ -24,49 +24,30 @@ Partial Class frmStart
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmStart))
-        btnMain = New Button()
         btnConfig = New Button()
         Panel1 = New Panel()
         Label2 = New Label()
         Label1 = New Label()
         PictureBox1 = New PictureBox()
         ToolTip1 = New ToolTip(components)
+        btnLogin = New Button()
+        btnNewUser = New Button()
         Panel2 = New Panel()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         SuspendLayout()
         ' 
-        ' btnMain
-        ' 
-        btnMain.BackColor = Color.Transparent
-        btnMain.BackgroundImageLayout = ImageLayout.None
-        btnMain.FlatStyle = FlatStyle.Flat
-        btnMain.Font = New Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        btnMain.Image = CType(resources.GetObject("btnMain.Image"), Image)
-        btnMain.ImageAlign = ContentAlignment.MiddleLeft
-        btnMain.Location = New Point(109, 109)
-        btnMain.Name = "btnMain"
-        btnMain.RightToLeft = RightToLeft.No
-        btnMain.Size = New Size(141, 45)
-        btnMain.TabIndex = 0
-        btnMain.Text = "Users"
-        ToolTip1.SetToolTip(btnMain, "User accounts")
-        btnMain.UseVisualStyleBackColor = False
-        ' 
         ' btnConfig
         ' 
         btnConfig.BackColor = Color.Transparent
-        btnConfig.FlatStyle = FlatStyle.Flat
         btnConfig.Font = New Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
         btnConfig.Image = My.Resources.Resources.settings
-        btnConfig.ImageAlign = ContentAlignment.MiddleLeft
-        btnConfig.Location = New Point(109, 160)
+        btnConfig.Location = New Point(243, 12)
         btnConfig.Name = "btnConfig"
         btnConfig.RightToLeft = RightToLeft.No
-        btnConfig.Size = New Size(141, 45)
+        btnConfig.Size = New Size(45, 45)
         btnConfig.TabIndex = 2
-        btnConfig.Text = "Settings"
         ToolTip1.SetToolTip(btnConfig, "Database settings")
         btnConfig.UseVisualStyleBackColor = False
         ' 
@@ -79,7 +60,7 @@ Partial Class frmStart
         Panel1.Dock = DockStyle.Left
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(349, 407)
+        Panel1.Size = New Size(300, 365)
         Panel1.TabIndex = 3
         ' 
         ' Label2
@@ -87,7 +68,7 @@ Partial Class frmStart
         Label2.AutoSize = True
         Label2.BackColor = Color.Transparent
         Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label2.Location = New Point(37, 263)
+        Label2.Location = New Point(11, 263)
         Label2.Name = "Label2"
         Label2.Size = New Size(93, 28)
         Label2.TabIndex = 6
@@ -98,7 +79,7 @@ Partial Class frmStart
         Label1.AutoSize = True
         Label1.BackColor = Color.Transparent
         Label1.ForeColor = Color.Black
-        Label1.Location = New Point(37, 291)
+        Label1.Location = New Point(11, 291)
         Label1.Name = "Label1"
         Label1.Size = New Size(279, 60)
         Label1.TabIndex = 5
@@ -108,21 +89,54 @@ Partial Class frmStart
         ' 
         PictureBox1.BackColor = Color.Transparent
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
-        PictureBox1.Location = New Point(49, 32)
+        PictureBox1.Location = New Point(25, 32)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(250, 228)
         PictureBox1.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox1.TabIndex = 4
         PictureBox1.TabStop = False
         ' 
+        ' btnLogin
+        ' 
+        btnLogin.BackColor = Color.Transparent
+        btnLogin.FlatStyle = FlatStyle.Flat
+        btnLogin.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnLogin.ForeColor = Color.Black
+        btnLogin.Image = CType(resources.GetObject("btnLogin.Image"), Image)
+        btnLogin.ImageAlign = ContentAlignment.MiddleLeft
+        btnLogin.Location = New Point(80, 109)
+        btnLogin.Name = "btnLogin"
+        btnLogin.Size = New Size(141, 45)
+        btnLogin.TabIndex = 102
+        btnLogin.Text = "Login"
+        ToolTip1.SetToolTip(btnLogin, "Login to User Account")
+        btnLogin.UseVisualStyleBackColor = False
+        ' 
+        ' btnNewUser
+        ' 
+        btnNewUser.BackColor = Color.Transparent
+        btnNewUser.FlatStyle = FlatStyle.Flat
+        btnNewUser.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        btnNewUser.ForeColor = Color.Black
+        btnNewUser.Image = CType(resources.GetObject("btnNewUser.Image"), Image)
+        btnNewUser.ImageAlign = ContentAlignment.MiddleLeft
+        btnNewUser.Location = New Point(80, 160)
+        btnNewUser.Name = "btnNewUser"
+        btnNewUser.Size = New Size(141, 45)
+        btnNewUser.TabIndex = 103
+        btnNewUser.Text = "New"
+        ToolTip1.SetToolTip(btnNewUser, "Create new user account")
+        btnNewUser.UseVisualStyleBackColor = False
+        ' 
         ' Panel2
         ' 
+        Panel2.Controls.Add(btnNewUser)
+        Panel2.Controls.Add(btnLogin)
         Panel2.Controls.Add(btnConfig)
-        Panel2.Controls.Add(btnMain)
         Panel2.Dock = DockStyle.Fill
-        Panel2.Location = New Point(349, 0)
+        Panel2.Location = New Point(300, 0)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(360, 407)
+        Panel2.Size = New Size(300, 365)
         Panel2.TabIndex = 4
         ' 
         ' frmStart
@@ -130,7 +144,7 @@ Partial Class frmStart
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.ControlLightLight
-        ClientSize = New Size(709, 407)
+        ClientSize = New Size(600, 365)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
         FormBorderStyle = FormBorderStyle.FixedSingle
@@ -139,15 +153,13 @@ Partial Class frmStart
         MinimizeBox = False
         Name = "frmStart"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Welcome"
+        Text = "OptoRec - Start"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents btnMain As Button
     Friend WithEvents btnConfig As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ToolTip1 As ToolTip
@@ -165,4 +177,6 @@ Partial Class frmStart
     End Sub
 
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents btnLogin As Button
+    Friend WithEvents btnNewUser As Button
 End Class

@@ -193,7 +193,7 @@
   <data name="btnExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAS9JREFUSEvllUEuBEEYRptEJGLlFNzC0oLEwgU4iY21E9hYO4WNDUdgKYQEGwTB
+        DgAACw4BQL7hQQAAAS9JREFUSEvllUEuBEEYRptEJGLlFNzC0oLEwgU4iY21E9hYO4WNDUdgKYQEGwTB
         e53U5O9Kd093zaz4kpeZ6kn9r6tquv+K7MI9/IzgHc5gDabG4ldwCs+QinzDBRzBYcYxvIKSqbGYk8wy
         7ECUPYCrzKPkDRbqUU+iICbJXN2dF7I45wsW61FPugQpXYX+nmAdPLe9ehRSKtiHa0iHvALn8AkNSamg
         Laug5AMmkhLBBmx2sA23MJGMFbgl8YHs4wXqL2NX4IG23b3MvIKY/Cme2xmYA7iB/F/UKG5KBfl1t+0J
@@ -207,7 +207,7 @@
   <data name="btnUpdateAcc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAkdJREFUSEvNlT9IVVEcx69lSSIUEoEOpUbloJOVUBHV4p/BxaGGxqJFCLXUoVEJ
+        vwAADr8BOAVTJAAAAkdJREFUSEvNlT9IVVEcx69lSSIUEoEOpUbloJOVUBHV4p/BxaGGxqJFCLXUoVEJ
         ahBxaM3UxSUKagxX1xJEQR2KcLB0EDPo3+dz3zuRz+f1Pp5DX/jAOeee8zvn/M73nBv9LzoAdXA5i2Xb
         itYFGIOv8DuHL+A3+xSsYzABv2AJhqAdGrNYts1v9rGvY1LpFMzDGtyBg6AOQy2YHsvKb/ZZB8echES5
         CjsuwxkbkDl/Dd8gpMeybVfgBNh/Fo5CotyqKze4h/gUTMEHeAgtWSy/B799hBWogUoIO94hD8sBblkZ
@@ -226,7 +226,7 @@
   <data name="btnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0wAADdMBvdUcagAAAftJREFUSEullb1LHFEUR19CggEVSWMlSAQb02ij/gEipkhtY2FsNGBhbAJ2aZIm
+        0gAADdIBb5L+jgAAAftJREFUSEullb1LHFEUR19CggEVSWMlSAQb02ij/gEipkhtY2FsNGBhbAJ2aZIm
         TUCwSWNjYSeCkNImKWKjhQGxMELqGAuxicnv3DtvmXnu211mDxy8d+7H211nZ0MbpuSZ/JeR2qSszVHh
         SsZY74hH8rkcL/lbbibXylKjp3yNHeyqMCh/yGYfQx3Zxc4GG/JazsjpLmUHu9jZYE3eylW52KXsYBc7
         G/TKA9ns7daRXeys0CcpvpKPa8osO9jVlBu57qHBrchdEXlRGKFGT4RZdmT5KT94aPyS7zw09gsj1OiJ

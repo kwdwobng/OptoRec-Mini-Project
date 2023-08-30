@@ -26,19 +26,12 @@ Partial Class frmExport
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(frmExport))
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
         btnExportCon = New Button()
         GroupBox1 = New GroupBox()
-        btnExportTrans = New Button()
-        DataGridView2 = New DataGridView()
-        GroupBox2 = New GroupBox()
         ToolTip1 = New ToolTip(components)
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
-        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
-        GroupBox2.SuspendLayout()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -99,64 +92,6 @@ Partial Class frmExport
         GroupBox1.TabStop = False
         GroupBox1.Text = "Consultation Data"
         ' 
-        ' btnExportTrans
-        ' 
-        btnExportTrans.BackColor = SystemColors.InactiveBorder
-        btnExportTrans.FlatStyle = FlatStyle.Flat
-        btnExportTrans.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        btnExportTrans.Image = CType(resources.GetObject("btnExportTrans.Image"), Image)
-        btnExportTrans.ImageAlign = ContentAlignment.MiddleLeft
-        btnExportTrans.Location = New Point(702, 273)
-        btnExportTrans.Name = "btnExportTrans"
-        btnExportTrans.Size = New Size(141, 45)
-        btnExportTrans.TabIndex = 2
-        btnExportTrans.Text = "Export"
-        ToolTip1.SetToolTip(btnExportTrans, "Export all accounting data")
-        btnExportTrans.UseVisualStyleBackColor = False
-        ' 
-        ' DataGridView2
-        ' 
-        DataGridView2.BackgroundColor = SystemColors.ControlLightLight
-        DataGridView2.BorderStyle = BorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = SystemColors.Control
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = SystemColors.Window
-        DataGridViewCellStyle4.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.False
-        DataGridView2.DefaultCellStyle = DataGridViewCellStyle4
-        DataGridView2.Location = New Point(51, 47)
-        DataGridView2.Name = "DataGridView2"
-        DataGridView2.ReadOnly = True
-        DataGridView2.RowHeadersVisible = False
-        DataGridView2.RowHeadersWidth = 51
-        DataGridView2.RowTemplate.Height = 29
-        DataGridView2.Size = New Size(792, 220)
-        DataGridView2.TabIndex = 0
-        ToolTip1.SetToolTip(DataGridView2, "Accounting data grid view")
-        ' 
-        ' GroupBox2
-        ' 
-        GroupBox2.Controls.Add(btnExportTrans)
-        GroupBox2.Controls.Add(DataGridView2)
-        GroupBox2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        GroupBox2.Location = New Point(12, 353)
-        GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(921, 344)
-        GroupBox2.TabIndex = 4
-        GroupBox2.TabStop = False
-        GroupBox2.Text = "Transaction Data"
-        ' 
         ' frmExport
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -164,7 +99,6 @@ Partial Class frmExport
         AutoScroll = True
         BackColor = SystemColors.ControlLightLight
         ClientSize = New Size(1280, 720)
-        Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
         Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
         FormBorderStyle = FormBorderStyle.None
@@ -172,16 +106,11 @@ Partial Class frmExport
         Text = "Data Export Centre"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         GroupBox1.ResumeLayout(False)
-        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
-        GroupBox2.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnExportCon As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents btnExportTrans As Button
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ToolTip1 As ToolTip
 End Class

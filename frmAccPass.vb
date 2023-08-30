@@ -1,8 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
-'General access to all features except clinical data
+'Login to General Environment
 Public Class frmAccPass
-    Public username, password As String
+    Public username, account_id As String
     Dim sqlConn As New MySqlConnection
     Dim sqlComm As New MySqlCommand
     Dim sqlReader As MySqlDataReader
@@ -15,6 +15,7 @@ Public Class frmAccPass
     'Login to account
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim count As Integer
+        Dim password As String
         Try
             DB.sqlConnect.Open()
             sqlQuery = "SELECT * FROM passwords WHERE username = '" & txtUsername.Text & "' AND password1 = '" & txtPassword.Text & "';"
@@ -24,6 +25,8 @@ Public Class frmAccPass
 
             While sqlReader.Read
                 count += 1
+                account_id = sqlReader.GetString("account_id")
+                username = sqlReader.GetString("username")
             End While
 
             If count = 1 Then
@@ -34,10 +37,11 @@ Public Class frmAccPass
                 txtPassword.Clear()
 
                 'Show client centre
+                frmMainUI.Show()
                 frmClientCentre.Dispose()
                 frmMainUI.ViewInPanel(frmClientCentre)
-                frmUAC.Hide()
-                Close()
+                'frmUAC.Hide()
+                Hide()
             Else
                 MessageBox.Show("Username or password is incorrect.", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

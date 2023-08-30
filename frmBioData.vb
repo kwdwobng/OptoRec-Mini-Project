@@ -7,8 +7,8 @@ Public Class frmBioData
     Dim sqlReader As MySqlDataReader
     Dim dialog As DialogResult
 
-    'Display client biodata from database
     Private Sub frmBioData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Display client biodata from database
         Try
             DB.sqlConnect.Open()
             sqlQuery = "SELECT * FROM biodata WHERE client_id =" & frmClientCentre.client_id & ";"
@@ -67,7 +67,7 @@ Public Class frmBioData
             "') AND (account_id =" & frmClientCentre.account_id & " AND client_id =" & frmClientCentre.client_id &
             ");"
 
-        dialog = MessageBox.Show("Do want to update current data entries?", "Update Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk)
+        dialog = MessageBox.Show("Do want to save any changes you have made to client biodata?", "Update Data", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk)
         If dialog = DialogResult.Yes Then
             Try
                 DB.sqlConnect.Open()
@@ -86,7 +86,7 @@ Public Class frmBioData
 
     'Go to form to access clinical records
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
-        frmClinicalPass.Show()
+        frmConsultView.Show()
     End Sub
 
     'Delete client info
@@ -118,7 +118,7 @@ Public Class frmBioData
         Close()
     End Sub
     Private Sub frmBioData_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        dialog = MessageBox.Show("Have you have you saved or updated your data before exiting?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        dialog = MessageBox.Show("Have you have you saved saved any changes before exiting?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If dialog = DialogResult.No Then
             e.Cancel = True
         Else

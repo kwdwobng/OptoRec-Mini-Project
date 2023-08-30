@@ -8,7 +8,23 @@ Public Class frmNewClient
     Dim sqlQuery, gender As String
     Dim sqlReader As MySqlDataReader
 
+    'Prevent save with empty first name
+    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
+        If Not txtFirstName.Text = "" Then
+            btnSaveAcc.Enabled = True
+        ElseIf txtFirstName.Text = "" Then
+            btnSaveAcc.Enabled = False
+        End If
+    End Sub
 
+    'Prevent save with empty surname
+    Private Sub txtSurname_TextChanged(sender As Object, e As EventArgs) Handles txtSurname.TextChanged
+        If Not txtSurname.Text = "" Then
+            btnSaveAcc.Enabled = True
+        ElseIf txtSurname.Text = "" Then
+            btnSaveAcc.Enabled = False
+        End If
+    End Sub
     Private Sub rbtnMale_CheckedChanged(sender As Object, e As EventArgs) Handles rbtnMale.CheckedChanged
         gender = "Male"
     End Sub
@@ -22,7 +38,7 @@ Public Class frmNewClient
             Dim biodata, cardio_vasc, va_exam, history, ext_exam, int_exam, dxMngmnt As String
             Dim dialog As DialogResult
             DB.sqlConnect.Close()
-            biodata = "INSERT INTO biodata VALUES(" & frmUAC.account_id & ", DEFAULT, '" & txtCardNum.Text & "', '" & txtFirstName.Text & "', '" _
+            biodata = "INSERT INTO biodata VALUES(" & frmAccPass.account_id & ", DEFAULT, '" & txtCardNum.Text & "', '" & txtFirstName.Text & "', '" _
                 & txtSurname.Text & "', '" & txtOtherName.Text & "', '" & txtJob.Text & "', '" & DateTimePicker1.Text & "', '" & gender & "', '" _
                 & txtPhoneNum.Text & "', '" & txtReligion.Text & "', '" & txtEmail.Text & "', DEFAULT);"
 
@@ -79,19 +95,4 @@ Public Class frmNewClient
         End If
     End Sub
 
-    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
-        If Not txtFirstName.Text = "" Then
-            btnSaveAcc.Enabled = True
-        ElseIf txtFirstName.Text = "" Then
-            btnSaveAcc.Enabled = False
-        End If
-    End Sub
-
-    Private Sub txtSurname_TextChanged(sender As Object, e As EventArgs) Handles txtSurname.TextChanged
-        If Not txtSurname.Text = "" Then
-            btnSaveAcc.Enabled = True
-        ElseIf txtSurname.Text = "" Then
-            btnSaveAcc.Enabled = False
-        End If
-    End Sub
 End Class

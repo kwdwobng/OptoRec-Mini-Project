@@ -2,6 +2,7 @@
 Imports System.Reflection.Emit
 Imports System.Xml
 
+'Start new consultation and view consultation history of client
 Public Class frmConsultView
     Public client_id, consult_id, first_name, surname, other_name, card_num, birth_date, age, gender, phone_num, job, religion, email, added_on, BP, sugar As String
     Public PdIn, PdOut, Lmono, RMono, OdAid, OdPin, OdUnAid, OsAid, OsPin, OdPlus, OsPlus, OsUnAid As String
@@ -17,6 +18,7 @@ Public Class frmConsultView
     Dim dbSource As New BindingSource
     Dim dbRow As New DataGridViewRow
 
+    'View consultation history
     Private Sub frmConsultView_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DB.sqlConnect.Close()
         sqlQuery = "SELECT *
@@ -37,7 +39,6 @@ Public Class frmConsultView
 	                    ON cv.client_id = bd.client_id
                     WHERE cv.client_id = " & frmClientCentre.client_id & "
                     ORDER BY co.added_on DESC;"
-
         Try
             DB.sqlConnect.Open()
             sqlComm.CommandText = sqlQuery
@@ -54,6 +55,7 @@ Public Class frmConsultView
             DB.sqlConnect.Dispose()
         End Try
 
+        'Client age
         Try
             DB.sqlConnect.Open()
             sqlQuery = "SELECT timestampdiff(YEAR, birth_date, curdate()) AS 'Age' FROM biodata WHERE client_id = " & frmClientCentre.client_id & ";"
@@ -70,6 +72,7 @@ Public Class frmConsultView
             DB.sqlConnect.Dispose()
         End Try
 
+        'Client details summary
         Try
             DB.sqlConnect.Open()
             sqlQuery = "SELECT card_num, first_name, surname, other_name FROM biodata WHERE client_id = " & frmClientCentre.client_id & ";"
@@ -81,7 +84,7 @@ Public Class frmConsultView
                 Dim firstName = sqlReader.GetString("first_name")
                 Dim otherName = sqlReader.GetString("other_name")
                 Dim surName = sqlReader.GetString("surname")
-                Label1.Text = "Clinical records of:" & vbCrLf & firstName & " " & otherName & " " & surName & ", " & cardNum
+                Label1.Text = "Consultation history of:" & vbCrLf & firstName & " " & otherName & " " & surName & ", " & cardNum
             End While
             DB.sqlConnect.Close()
         Catch ex As Exception
@@ -90,55 +93,21 @@ Public Class frmConsultView
             DB.sqlConnect.Dispose()
         End Try
 
+        'Prevent viewing of clinical form where there is no consultation history 
         If Not first_name = "" Then
-
             btnView.Enabled = True
         Else
             btnView.Enabled = False
         End If
-
     End Sub
+
+    'Start a new consultation
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
-        Dim consult, cardio_vasc, va_exam, patient_hist, ext_exam, int_exam, dx_mngmnt As String
-        Dim dialog As DialogResult
-
-        consult = "INSERT INTO consult VALUES(DEFAULT, DEFAULT);"
-
-        cardio_vasc = "INSERT INTO cardio_vasc(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-        va_exam = "INSERT INTO va_exam(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-        patient_hist = "INSERT INTO patient_hist(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-        ext_exam = "INSERT INTO ext_exam(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-        int_exam = "INSERT INTO int_exam(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-        dx_mngmnt = "INSERT INTO dx_mngmnt(consult_id, client_id) VALUES((SELECT MAX(consult_id) FROM consult), " & frmClientCentre.client_id & ");"
-
-
-        sqlQuery = consult & cardio_vasc & va_exam & patient_hist & ext_exam & int_exam & dx_mngmnt
-
-        dialog = MessageBox.Show("Do you wish to start a new consultation session with a client?", "New Consultation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk)
-        If dialog = DialogResult.Yes Then
-            Try
-                DB.sqlConnect.Open()
-                sqlComm.CommandText = sqlQuery
-                sqlComm = New MySqlCommand(sqlQuery, DB.sqlConnect)
-                sqlReader = sqlComm.ExecuteReader
-                MessageBox.Show("New consultation started")
-                DB.sqlConnect.Close()
-                frmMainUI.ViewInPanel(frmCardio)
-                Close()
-            Catch ex As Exception
-                MessageBox.Show(ex.Message)
-            Finally
-                DB.sqlConnect.Dispose()
-            End Try
-
-        End If
-
+        frmClinicalPass.Show()
     End Sub
 
-
-
+    'Select consultation from consultation history
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick, DataGridView1.CellEnter
-
         If e.RowIndex >= 0 Then
             dbRow = Me.DataGridView1.Rows(e.RowIndex)
             client_id = dbRow.Cells("client_id").Value.ToString
@@ -158,7 +127,6 @@ Public Class frmConsultView
             BP = dbRow.Cells("bp").Value.ToString
             sugar = dbRow.Cells("sugar").Value.ToString
 
-
             PdOut = dbRow.Cells("outer_pd").Value.ToString
             PdIn = dbRow.Cells("inner_pd").Value.ToString
             RMono = dbRow.Cells("od_mono_pd").Value.ToString
@@ -172,7 +140,6 @@ Public Class frmConsultView
             OdPin = dbRow.Cells("od_pinhole").Value.ToString
             OsPin = dbRow.Cells("os_pinhole").Value.ToString
 
-
             pcCC = dbRow.Cells("pc_cc").Value.ToString
             HPC = dbRow.Cells("hpc").Value.ToString
             odq = dbRow.Cells("odq").Value.ToString
@@ -184,7 +151,6 @@ Public Class frmConsultView
             FOH = dbRow.Cells("foh").Value.ToString
             FMH = dbRow.Cells("fmh").Value.ToString
             Ddx = dbRow.Cells("ddx").Value.ToString
-
 
             OdLids = dbRow.Cells("od_lids").Value.ToString
             OdConjuct = dbRow.Cells("od_conjuct").Value.ToString
@@ -201,7 +167,6 @@ Public Class frmConsultView
             OsIris = dbRow.Cells("os_iris").Value.ToString
             OsAc = dbRow.Cells("os_ac").Value.ToString
             OsLens = dbRow.Cells("os_lens").Value.ToString
-
 
             OdVitr = dbRow.Cells("od_vitr").Value.ToString
             OdDisc = dbRow.Cells("od_disc").Value.ToString
@@ -221,13 +186,13 @@ Public Class frmConsultView
             OsMacular = dbRow.Cells("os_macular").Value.ToString
             OsPeriRet = dbRow.Cells("os_peri_ret").Value.ToString
 
-
             Dx = dbRow.Cells("dx").Value.ToString
             Px = dbRow.Cells("px_mngmnt").Value.ToString
             Comments = dbRow.Cells("comments").Value.ToString
         End If
     End Sub
 
+    'View consultation form from consultation history
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
         frmMainComp.ViewInPanel(CompForm1)
         frmMainComp.Show()

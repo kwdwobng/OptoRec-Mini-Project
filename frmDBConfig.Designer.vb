@@ -22,6 +22,7 @@ Partial Class frmDBConfig
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         txtServer = New TextBox()
         txtPort = New TextBox()
         txtUID = New TextBox()
@@ -31,9 +32,11 @@ Partial Class frmDBConfig
         Label3 = New Label()
         Label4 = New Label()
         btnTest = New Button()
-        btnExit = New Button()
+        btnApply = New Button()
         btnCreate = New Button()
         CheckBox1 = New CheckBox()
+        ToolTip1 = New ToolTip(components)
+        btnReset = New Button()
         SuspendLayout()
         ' 
         ' txtServer
@@ -109,26 +112,30 @@ Partial Class frmDBConfig
         btnTest.Size = New Size(120, 42)
         btnTest.TabIndex = 10
         btnTest.Text = "Test"
+        ToolTip1.SetToolTip(btnTest, "Test connection")
         btnTest.UseVisualStyleBackColor = False
         ' 
-        ' btnExit
+        ' btnApply
         ' 
-        btnExit.BackColor = SystemColors.ButtonHighlight
-        btnExit.Location = New Point(251, 239)
-        btnExit.Name = "btnExit"
-        btnExit.Size = New Size(120, 42)
-        btnExit.TabIndex = 11
-        btnExit.Text = "Exit"
-        btnExit.UseVisualStyleBackColor = False
+        btnApply.BackColor = SystemColors.ButtonHighlight
+        btnApply.Location = New Point(251, 239)
+        btnApply.Name = "btnApply"
+        btnApply.Size = New Size(120, 42)
+        btnApply.TabIndex = 11
+        btnApply.Text = "Apply"
+        ToolTip1.SetToolTip(btnApply, "Exit and apply configuration settings")
+        btnApply.UseVisualStyleBackColor = False
         ' 
         ' btnCreate
         ' 
         btnCreate.BackColor = SystemColors.ButtonHighlight
+        btnCreate.Enabled = False
         btnCreate.Location = New Point(251, 186)
         btnCreate.Name = "btnCreate"
         btnCreate.Size = New Size(120, 42)
         btnCreate.TabIndex = 13
-        btnCreate.Text = "Create"
+        btnCreate.Text = "Setup"
+        ToolTip1.SetToolTip(btnCreate, "Setup database")
         btnCreate.UseVisualStyleBackColor = False
         ' 
         ' CheckBox1
@@ -141,15 +148,27 @@ Partial Class frmDBConfig
         CheckBox1.Text = "Show Password"
         CheckBox1.UseVisualStyleBackColor = True
         ' 
+        ' btnReset
+        ' 
+        btnReset.BackColor = SystemColors.ButtonHighlight
+        btnReset.Location = New Point(125, 239)
+        btnReset.Name = "btnReset"
+        btnReset.Size = New Size(120, 42)
+        btnReset.TabIndex = 15
+        btnReset.Text = "Reset"
+        ToolTip1.SetToolTip(btnReset, "Test connection")
+        btnReset.UseVisualStyleBackColor = False
+        ' 
         ' frmDBConfig
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Control
-        ClientSize = New Size(440, 293)
+        ClientSize = New Size(440, 310)
+        Controls.Add(btnReset)
         Controls.Add(CheckBox1)
         Controls.Add(btnCreate)
-        Controls.Add(btnExit)
+        Controls.Add(btnApply)
         Controls.Add(btnTest)
         Controls.Add(Label4)
         Controls.Add(Label3)
@@ -182,7 +201,9 @@ Partial Class frmDBConfig
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents btnTest As Button
-    Friend WithEvents btnExit As Button
+    Friend WithEvents btnApply As Button
     Friend WithEvents btnCreate As Button
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents btnReset As Button
 End Class
