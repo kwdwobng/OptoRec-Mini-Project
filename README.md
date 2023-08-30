@@ -13,4 +13,4 @@ Setup Instructions:
 (8)	Through the consultation portal, enter and save the clinical records of the client.
 (9)	View the clinical records of the client through consultation history window.
 
-Developed by K.O. Kyei-Baffour.
+Developed by K.O. Kyei-Baffour, CS3, KNUST.
